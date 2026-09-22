@@ -8,9 +8,18 @@
  * the session, and refuses to take that from the browser.
  */
 
-const API_BASE = /^(localhost|127\.0\.0\.1)/.test(window.location.host)
-  ? `${window.location.origin}/api/v1`
-  : "/api/v1";
+// Backend URL: set window.BACKEND_URL in a <script> before this file, or leave
+// blank to use same-origin /api/v1 (works when backend is on the same host).
+// For Netlify static deployments pointing at a separate backend (e.g. Render/Railway):
+//   <script>window.BACKEND_URL = "https://your-backend.onrender.com";</script>
+const API_BASE = (() => {
+  if (window.BACKEND_URL) return `${window.BACKEND_URL.replace(/\/$/, "")}/api/v1`;
+  if (/^(localhost|127\.0\.0\.1)/.test(window.location.host))
+    return `${window.location.origin}/api/v1`;
+  // Netlify / any other static host — use same-origin (requires backend proxy or same domain)
+  return "/api/v1";
+})();
+
 
 const AUTH_ERROR_MESSAGES = {
   not_configured: "Anvaya sign-in is not connected to this assistant yet, so personal records are unavailable. General questions still work.",
