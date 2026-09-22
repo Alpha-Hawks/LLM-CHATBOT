@@ -165,13 +165,29 @@ class Settings(BaseSettings):
     # Database Settings
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./academic_chatbot.db")
     
-    # Security & CORS
-    ALLOWED_ORIGINS: List[str] = [
-        "https://anvaya.mlritm.ac.in",
-        "http://localhost:3000",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000"
-    ]
+    # Security & CORS — read from env var (JSON array) so Render/Netlify URLs are included
+    ALLOWED_ORIGINS: List[str] = []
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        import json as _json
+        raw = os.getenv("ALLOWED_ORIGINS", "")
+        if raw.strip():
+            try:
+                parsed = _json.loads(raw)
+                if isinstance(parsed, list):
+                    object.__setattr__(self, "ALLOWED_ORIGINS", parsed)
+            except Exception:
+                pass
+        if not self.ALLOWED_ORIGINS:
+            object.__setattr__(self, "ALLOWED_ORIGINS", [
+                "https://aichatbotmlritm.netlify.app",
+                "https://anvaya.mlritm.ac.in",
+                "http://localhost:3000",
+                "http://localhost:8000",
+                "http://127.0.0.1:8000",
+            ])
+
     
     # Redirect plain-HTTP requests to HTTPS (health probes excepted). Turn on wherever the assistant
     # is served to students; behind a reverse proxy the proxy must set X-Forwarded-Proto.

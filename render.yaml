@@ -1,0 +1,33 @@
+﻿# Render Blueprint - MLRITM LLM Chatbot Backend
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: mlritm-chatbot-api
+    env: python
+    region: singapore  # Closest to India
+    plan: free
+    buildCommand: pip install -r requirements-deploy.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: ENFORCE_HTTPS
+        value: true
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./academic_chatbot.db
+      - key: IDENTITY_PROVIDER
+        value: none
+      - key: STUDENT_DATA_PROVIDER
+        value: none
+      - key: ANVAYA_BASE_URL
+        value: https://anvaya.mlritm.ac.in
+      - key: SECRET_KEY
+        generateValue: true
+      - key: AES_ENCRYPTION_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: '["https://aichatbotmlritm.netlify.app","https://anvaya.mlritm.ac.in","http://localhost:8000","http://127.0.0.1:8000"]'
+      - key: PYTHONPATH
+        value: /opt/render/project/src
+      - key: PYTHONUNBUFFERED
+        value: "1"
