@@ -93,7 +93,37 @@ for pdf_path in pdf_files:
                     batch_year = f"20{clean_roll[:2]}"
                     branch_clean = get_clean_branch(row[11] if len(row) > 11 else "", clean_roll)
                     
-                    if is_it:
+                    # Check if row is shifted (Page 1 of sem 5 files where col 11 is empty and col 12 is Branch)
+                    if len(row) >= 19 and row[11] == "" and any(b in clean_cell(row[12]).upper() for b in ["ENGINEER", "SCIENCE", "CIVIL", "COMPUTER", "ELECTRONIC", "ELECTRICAL", "MECHANIC"]):
+                        is_shifted = True
+                        rec = {
+                            "roll_number": clean_roll,
+                            "student_name": row[1],
+                            "batch": batch_year,
+                            "section": "",
+                            "academic_year": row[2],
+                            "gender": row[3],
+                            "date_of_birth": row[4],
+                            "student_mobile": row[5],
+                            "student_email": row[6],
+                            "father_name": row[7],
+                            "father_mobile": row[9],   # Realigned from col 9
+                            "mother_name": row[10],    # Realigned from col 10
+                            "mother_mobile": "",       # Blank in source table
+                            "branch": branch_clean,    # Realigned & canonical
+                            "admission_year": batch_year, # Inferred from roll batch
+                            "scholarship_type": row[13],
+                            "parent_income": row[14],
+                            "parent_profession": row[15],
+                            "admission_category": row[16],
+                            "caste_name": row[17],
+                            "current_semester": row[18],
+                            "source_file": fname,
+                            "source_page": page_idx,
+                            "source_row": r_idx,
+                            "extraction_method": "text_table_realigned"
+                        }
+                    else:
                         rec = {
                             "roll_number": clean_roll,
                             "student_name": row[1] if len(row) > 1 else "",
@@ -104,82 +134,23 @@ for pdf_path in pdf_files:
                             "date_of_birth": row[4] if len(row) > 4 else "",
                             "student_mobile": row[5] if len(row) > 5 else "",
                             "student_email": row[6] if len(row) > 6 else "",
-                            "father_name": "",
-                            "father_mobile": row[7] if len(row) > 7 else "",
-                            "mother_name": row[8] if len(row) > 8 else "",
-                            "mother_mobile": row[9] if len(row) > 9 else "",
+                            "father_name": row[7] if len(row) > 7 else "",
+                            "father_mobile": row[8] if len(row) > 8 else "",
+                            "mother_name": row[9] if len(row) > 9 else "",
+                            "mother_mobile": row[10] if len(row) > 10 else "",
                             "branch": branch_clean,
-                            "admission_year": row[11] if len(row) > 11 else "",
-                            "scholarship_type": row[12] if len(row) > 12 else "",
-                            "parent_income": row[13] if len(row) > 13 else "",
-                            "parent_profession": row[14] if len(row) > 14 else "",
-                            "admission_category": row[15] if len(row) > 15 else "",
-                            "caste_name": row[16] if len(row) > 16 else "",
-                            "current_semester": row[17] if len(row) > 17 else "",
+                            "admission_year": row[12] if len(row) > 12 else "",
+                            "scholarship_type": row[13] if len(row) > 13 else "",
+                            "parent_income": row[14] if len(row) > 14 else "",
+                            "parent_profession": row[15] if len(row) > 15 else "",
+                            "admission_category": row[16] if len(row) > 16 else "",
+                            "caste_name": row[17] if len(row) > 17 else "",
+                            "current_semester": row[18] if len(row) > 18 else "",
                             "source_file": fname,
                             "source_page": page_idx,
                             "source_row": r_idx,
                             "extraction_method": "text_table"
                         }
-                    else:
-                        # Check if row is shifted (Page 1 of sem 5 files where col 11 is empty and col 12 is Branch)
-                        if len(row) >= 19 and row[11] == "" and any(b in clean_cell(row[12]).upper() for b in ["ENGINEER", "SCIENCE", "CIVIL", "COMPUTER", "ELECTRONIC", "ELECTRICAL", "MECHANIC"]):
-                            is_shifted = True
-                            rec = {
-                                "roll_number": clean_roll,
-                                "student_name": row[1],
-                                "batch": batch_year,
-                                "section": "",
-                                "academic_year": row[2],
-                                "gender": row[3],
-                                "date_of_birth": row[4],
-                                "student_mobile": row[5],
-                                "student_email": row[6],
-                                "father_name": row[7],
-                                "father_mobile": row[9],   # Realigned from col 9
-                                "mother_name": row[10],    # Realigned from col 10
-                                "mother_mobile": "",       # Blank in source table
-                                "branch": branch_clean,    # Realigned & canonical
-                                "admission_year": batch_year, # Inferred from roll batch
-                                "scholarship_type": row[13],
-                                "parent_income": row[14],
-                                "parent_profession": row[15],
-                                "admission_category": row[16],
-                                "caste_name": row[17],
-                                "current_semester": row[18],
-                                "source_file": fname,
-                                "source_page": page_idx,
-                                "source_row": r_idx,
-                                "extraction_method": "text_table_realigned"
-                            }
-                        else:
-                            rec = {
-                                "roll_number": clean_roll,
-                                "student_name": row[1] if len(row) > 1 else "",
-                                "batch": batch_year,
-                                "section": "",
-                                "academic_year": row[2] if len(row) > 2 else "",
-                                "gender": row[3] if len(row) > 3 else "",
-                                "date_of_birth": row[4] if len(row) > 4 else "",
-                                "student_mobile": row[5] if len(row) > 5 else "",
-                                "student_email": row[6] if len(row) > 6 else "",
-                                "father_name": row[7] if len(row) > 7 else "",
-                                "father_mobile": row[8] if len(row) > 8 else "",
-                                "mother_name": row[9] if len(row) > 9 else "",
-                                "mother_mobile": row[10] if len(row) > 10 else "",
-                                "branch": branch_clean,
-                                "admission_year": row[12] if len(row) > 12 else "",
-                                "scholarship_type": row[13] if len(row) > 13 else "",
-                                "parent_income": row[14] if len(row) > 14 else "",
-                                "parent_profession": row[15] if len(row) > 15 else "",
-                                "admission_category": row[16] if len(row) > 16 else "",
-                                "caste_name": row[17] if len(row) > 17 else "",
-                                "current_semester": row[18] if len(row) > 18 else "",
-                                "source_file": fname,
-                                "source_page": page_idx,
-                                "source_row": r_idx,
-                                "extraction_method": "text_table"
-                            }
 
                     # Data quality checks for needs_review
                     flags = []
