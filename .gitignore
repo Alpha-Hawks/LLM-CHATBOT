@@ -1,0 +1,44 @@
+# Environment and secrets
+.env
+*.pem
+*.key
+*.p8
+service_account.json
+id_rsa*
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Extraction outputs and student data files
+output/
+students_master.csv
+students_master.json
+needs_review.csv
+students_clean.csv
+data/extracted/
+
+# Temporary scratch files
+scratch/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db

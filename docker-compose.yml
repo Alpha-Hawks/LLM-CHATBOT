@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: mlritm_chatbot_api
+    ports:
+      - "8000:8000"
+    environment:
+      - PROJECT_NAME=MLRITM Academic Advising Chatbot
+      # Supply real secrets from the host environment or a secrets store, never from this file.
+      # With STUDENT_DATA_PROVIDER set to a real source the service refuses to start on the
+      # published placeholder values.
+      - SECRET_KEY=${SECRET_KEY:?set SECRET_KEY in the environment}
+      - AES_ENCRYPTION_KEY=${AES_ENCRYPTION_KEY:?set AES_ENCRYPTION_KEY in the environment}
+      - ENVIRONMENT=production
+      - IDENTITY_PROVIDER=${IDENTITY_PROVIDER:-none}
+      - STUDENT_DATA_PROVIDER=${STUDENT_DATA_PROVIDER:-none}
+      - ANVAYA_API_BASE_URL=${ANVAYA_API_BASE_URL:-}
+      - ANVAYA_API_STUDENT_PATH=${ANVAYA_API_STUDENT_PATH:-}
+      - ANVAYA_API_TOKEN=${ANVAYA_API_TOKEN:-}
+      - ENFORCE_HTTPS=${ENFORCE_HTTPS:-true}
+      - DATABASE_URL=${DATABASE_URL:-sqlite+aiosqlite:///./academic_chatbot.db}
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    restart: unless-stopped

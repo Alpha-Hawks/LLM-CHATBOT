@@ -1,0 +1,13 @@
+# GBNF Grammar for Llama 2 Intent Routing
+# Constrains generation to valid JSON with strictly enumerated intents
+
+root ::= "{" ws "\"intent\":" ws intent_value ws ",\"" ws "\"confidence\":" ws number ws ",\"" ws "\"parameters\":" ws parameters ws "}"
+
+intent_value ::= "\"FAQ_RAG\"" | "\"ATTENDANCE\"" | "\"RESULTS\"" | "\"MARKS\"" | "\"TIMETABLE\"" | "\"SUBJECTS\"" | "\"FACULTY\"" | "\"EXAMS\"" | "\"ASSIGNMENTS\"" | "\"PROFILE\"" | "\"HOLIDAYS\"" | "\"SMALL_TALK\"" | "\"OUT_OF_SCOPE\"" | "\"ESCALATE\""
+
+parameters ::= "{" ws ( parameter_kv ( ws "," ws parameter_kv )* )? ws "}"
+parameter_kv ::= string ws ":" ws ( string | number | "true" | "false" | "null" )
+
+string ::= "\"" ( [^"\\] | "\\" ["\\/bfnrt] )* "\""
+number ::= "-"? [0-9]+ ( "." [0-9]+ )?
+ws ::= [ \t\n\r]*

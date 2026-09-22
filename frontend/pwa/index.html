@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>MLRITM Student AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Inline so the tab icon costs no request and works offline -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236366f1'/%3E%3Ctext x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='700' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css?v=6" />
+</head>
+<body class="min-h-screen text-slate-100 font-sans antialiased selection:bg-indigo-500/40">
+
+  <!-- Ambient background -->
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora-blob aurora-blob--one"></span>
+    <span class="aurora-blob aurora-blob--two"></span>
+    <span class="aurora-blob aurora-blob--three"></span>
+  </div>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="glass-bar sticky top-0 z-40">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-3">
+
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="brand-mark" aria-hidden="true">M</div>
+        <div class="min-w-0">
+          <h1 class="text-[15px] font-semibold leading-tight text-white truncate">
+            MLRITM Student AI Assistant
+          </h1>
+          <p class="text-[11px] text-slate-400 truncate">Your personal academic assistant · MLRITM</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <!-- Anvaya connection status -->
+        <div id="authStatus" class="status-pill" title="Anvaya connection status">
+          <span id="authStatusDot" class="status-dot"></span>
+          <span id="authStatusText" class="hidden sm:inline">Not signed in</span>
+        </div>
+
+        <!-- Primary call to action: Anvaya sign-in -->
+        <button id="loginBtn" class="btn-anvaya" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Login with Anvaya</span>
+        </button>
+
+        <!-- Shown instead of the login button once signed in -->
+        <div id="profileChip" class="profile-chip hidden cursor-pointer hover:bg-white/10 transition-colors" title="Click to view full profile details">
+          <span id="chipAvatar" class="chip-avatar">S</span>
+          <span class="hidden sm:flex flex-col leading-tight text-left min-w-0">
+            <span id="chipName" class="text-[12px] font-semibold text-white truncate max-w-[140px]"></span>
+            <span id="chipMeta" class="text-[10px] text-slate-400 truncate max-w-[140px]"></span>
+          </span>
+          <button id="logoutBtn" class="chip-logout" type="button" title="Sign out">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ MAIN ============================ -->
+    <!--
+    Three areas - profile, chat, actions - placed by CSS grid.
+    Wide screens put profile and actions in a sidebar beside the chat; narrow screens and the
+    embedded widget stack them profile -> chat -> actions, so the student sees who they are
+    signed in as and can still reach the composer without scrolling past the whole sidebar.
+  -->
+  <main class="layout mx-auto max-w-7xl w-full px-4 py-4 lg:py-6">
+
+    <!-- Signed-out prompt -->
+    <section id="signedOutPanel" class="area-profile glass-card p-5 text-center reveal">
+        <div class="mx-auto mb-3 h-12 w-12 rounded-2xl bg-indigo-500/15 border border-indigo-400/25 grid place-items-center">
+          <svg class="h-5 w-5 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <h2 class="text-sm font-semibold text-white">Connect your Anvaya account</h2>
+        <p class="mt-1.5 text-xs leading-relaxed text-slate-400">
+          Sign in with Anvaya to ask about <em>your</em> attendance, subjects, marks, faculty,
+          timetable and results. This assistant never asks for your Anvaya password.
+        </p>
+        <button id="loginBtnSidebar" class="btn-anvaya w-full mt-4 justify-center" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Login with Anvaya</span>
+        </button>
+        <p id="signInHint" class="mt-3 text-[11px] text-slate-500"></p>
+      </section>
+
+    <!-- Student profile -->
+    <section id="studentPanel" class="area-profile glass-card overflow-hidden hidden reveal">        <div class="profile-header">
+          <div class="flex items-start gap-3">
+            <div id="profileAvatar" class="profile-avatar">S</div>
+            <div class="min-w-0 flex-1">
+              <p class="text-[11px] uppercase tracking-wider text-indigo-300 font-medium">Welcome,</p>
+              <h2 id="profileName" class="text-base font-bold text-white leading-tight truncate">—</h2>
+              <div class="mt-1 flex items-center gap-1.5 text-xs text-slate-300">
+                <span class="text-slate-400 font-medium">Roll Number:</span>
+                <span id="profileRoll" class="font-mono text-indigo-200 font-semibold truncate">—</span>
+              </div>
+              <!-- Narrow screens show the same facts on one line instead of the field grid below -->
+              <p id="profileMeta" class="profile-meta"></p>
+            </div>
+          </div>
+
+          <dl class="mt-4 grid grid-cols-2 gap-2 text-[11px]">
+            <div class="profile-field">
+              <dt>Department</dt><dd id="profileDept">—</dd>
+            </div>
+            <div class="profile-field">
+              <dt>Semester</dt><dd id="profileSemester">—</dd>
+            </div>
+            <div class="profile-field">
+              <dt>Year</dt><dd id="profileYear">—</dd>
+            </div>
+            <div class="profile-field">
+              <dt>Section</dt><dd id="profileSection">—</dd>
+            </div>
+          </dl>
+          <button id="viewProfileDetailsPanelBtn" class="btn-anvaya w-full mt-3 justify-center text-xs py-2" type="button">
+            <span>👤</span> View Complete Profile Details
+          </button>
+        </div>
+
+        <!-- Live stats -->
+        <div id="profileStats" class="grid grid-cols-3 gap-px bg-white/5">
+          <div class="stat-tile">
+            <span class="stat-value" id="statAttendance">—</span>
+            <span class="stat-label">Attendance</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-value" id="statCgpa">—</span>
+            <span class="stat-label">CGPA</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-value" id="statSubjects">—</span>
+            <span class="stat-label">Subjects</span>
+          </div>
+        </div>
+
+        <div id="attendanceAlert" class="hidden px-4 py-2.5 text-[11px] leading-relaxed border-t border-white/5"></div>
+
+        <!-- Synchronization state -->
+        <div class="flex items-center justify-between gap-2 px-4 py-2.5 border-t border-white/5">
+          <p class="text-[10px] text-slate-400 truncate">
+            <span class="text-emerald-400 font-medium">✓ Connected to Anvaya</span> · <span id="syncDataStatus" class="font-semibold text-emerald-400">Live</span> · Last synced: <span id="lastSynced" class="text-slate-300 font-medium">recently</span>
+          </p>
+          <button id="syncBtn" class="sync-btn" type="button" title="Refresh My Data (Sync from Anvaya)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/>
+              <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1 6.74-2.74L3 16"/><path d="M8 16H3v5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+    <!-- Quick actions -->
+    <section class="area-actions glass-card p-4 reveal">
+        <h2 class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-3">Quick actions</h2>
+        <div id="quickActions" class="grid grid-cols-2 gap-2">
+          <button class="quick-tile" id="quickProfileTile" type="button"><span>👤</span>Profile Details</button>
+          <button class="quick-tile" data-q="What is my attendance?"><span>📊</span>My Attendance</button>
+          <button class="quick-tile" data-q="Which subjects do I have this semester?"><span>📚</span>My Subjects</button>
+          <button class="quick-tile" data-q="What are my internal marks?"><span>📝</span>My Marks</button>
+          <button class="quick-tile" data-q="What are my latest results?"><span>🎓</span>My Results</button>
+          <button class="quick-tile" data-q="Who are my faculty members?"><span>👩‍🏫</span>My Faculty</button>
+          <button class="quick-tile" data-q="What is my class timetable?"><span>🗓️</span>My Timetable</button>
+          <button class="quick-tile" data-q="What is my examination schedule?"><span>🎯</span>My Exams</button>
+          <button class="quick-tile" id="refreshDataTile"><span>🔄</span>Refresh My Data</button>
+          <button class="quick-tile" id="quickLogoutTile"><span>🚪</span>Logout</button>
+        </div>
+
+        <h2 class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold mt-4 mb-2">College information</h2>
+        <div class="flex flex-wrap gap-1.5">
+          <button class="quick-chip" data-q="What is the B.Tech CSE tuition fee?">💰 Fees</button>
+          <button class="quick-chip" data-q="Is tomorrow a holiday?">🌴 Holidays</button>
+          <button class="quick-chip" data-q="Explain the MLR20 grading system">📘 Regulations</button>
+          <button class="quick-chip" data-q="Who is eligible for TS ePASS fee reimbursement?">🎖️ Scholarships</button>
+        </div>
+
+      <div class="mt-4 flex flex-col gap-1.5 text-xs">
+        <a href="https://anvaya.mlritm.ac.in/Login" target="_blank" rel="noopener noreferrer" class="anvaya-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          </svg>
+          Official Anvaya Login
+        </a>
+        <a href="https://anvaya.mlritm.ac.in/App" target="_blank" rel="noopener noreferrer" class="anvaya-link text-slate-400">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+          </svg>
+          Anvaya /App Portal
+        </a>
+      </div>
+    </section>
+
+    <!-- ---------------------- CHAT ---------------------- -->
+    <section class="area-chat glass-card flex flex-col overflow-hidden reveal">
+
+      <!-- Background Synchronization Status Banner -->
+      <div id="syncBanner" class="sync-banner hidden" role="status" aria-live="polite">
+        <div class="sync-banner-content">
+          <span id="syncBannerSpinner" class="sync-banner-spinner"></span>
+          <span id="syncBannerIcon" class="hidden">✅</span>
+          <span id="syncBannerText">Syncing your academic profile...</span>
+        </div>
+      </div>
+
+      <div id="chatMessages" class="flex-1 overflow-y-auto scrollbar-thin px-4 py-5 space-y-4">
+        <div class="assistant-intro">
+          <div class="flex items-start gap-3">
+            <div class="ai-avatar">AI</div>
+            <div class="space-y-2.5 text-sm leading-relaxed text-slate-300 min-w-0">
+              <p class="font-semibold text-white">Welcome to your MLRITM Student AI Assistant</p>
+              <p class="text-slate-400">Ask in your own words, or use a quick action.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5 text-xs">
+                <div class="intro-card">
+                  <span class="text-indigo-300 font-semibold">Your Anvaya record</span>
+                  <p class="text-slate-400 mt-0.5">Attendance, subjects, internal marks, faculty, timetable, exams and results for your current semester.</p>
+                </div>
+                <div class="intro-card">
+                  <span class="text-indigo-300 font-semibold">Official MLRITM information</span>
+                  <p class="text-slate-400 mt-0.5">MLR20 / MLR22 regulations, promotion credits, fee structure, TS ePASS scholarships and the academic calendar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Composer -->
+      <div class="border-t border-white/5 px-4 py-3 bg-white/[0.02]">
+        <form id="chatForm" class="relative">
+          <div class="composer">
+            <input
+              type="text"
+              id="userInput"
+              placeholder="Ask about your attendance, subjects, marks, timetable…"
+              autocomplete="off"
+              aria-label="Ask a question"
+            />
+            <button type="submit" id="sendBtn" aria-label="Send">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+        <p class="text-[10px] text-center text-slate-500 mt-2">
+          Your records are shown only to you, with your consent, under the DPDP Act 2023.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ PROFILE DATA MODAL ============================ -->
+  <div id="profileModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
+    <div class="modal-card modal-card-lg">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="text-xl">👤</span>
+          <div>
+            <h3 id="profileModalTitle" class="text-base font-semibold text-white leading-tight">Profile Details</h3>
+            <p class="text-[11px] text-slate-400">Official MLRITM Stored Student Record</p>
+          </div>
+        </div>
+        <button id="closeProfileModalBtn" class="text-slate-400 hover:text-white text-2xl leading-none px-1" type="button" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div id="profileModalContent" class="mt-4 space-y-4 max-h-[70vh] overflow-y-auto pr-1">
+        <!-- Dynamic student record sections rendered by app.js -->
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-white/10 flex justify-end">
+        <button id="closeProfileModalBtnBottom" type="button" class="btn-primary text-xs py-2 px-4">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ CONSENT MODAL ============================ -->
+  <div id="consentModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h3 class="text-base font-semibold text-white flex items-center gap-2">
+          <span>🔐</span> Allow access to your academic records
+        </h3>
+        <button id="closeConsentBtn" class="text-slate-400 hover:text-white text-xl leading-none" type="button" aria-label="Close">&times;</button>
+      </div>
+
+      <p id="consentIdentity" class="text-xs text-slate-300 mt-4"></p>
+
+      <div class="mt-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-slate-300 space-y-1">
+        <p class="font-semibold text-indigo-300">DPDP Act 2023 notice</p>
+        <p id="dpdpNoticeText" class="text-slate-400 leading-relaxed">
+          Your identity comes from your Anvaya sign-in. This assistant never asks for your Anvaya
+          password and shows only your own attendance, subjects, marks, timetable and results.
+        </p>
+      </div>
+
+      <form id="consentForm" class="mt-4 space-y-3">
+        <label for="consentCheckbox" class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" id="consentCheckbox" class="mt-0.5 rounded border-white/20 bg-slate-950 text-indigo-500 focus:ring-0 cursor-pointer" required />
+          <span class="text-xs text-slate-400 leading-relaxed">
+            I consent to this assistant showing my academic records from Anvaya for advising purposes.
+          </span>
+        </label>
+
+        <div id="consentError" class="text-xs text-rose-400 hidden"></div>
+
+        <button type="submit" class="btn-primary w-full">Allow &amp; continue</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="app.js?v=7"></script>
+</body>
+</html>

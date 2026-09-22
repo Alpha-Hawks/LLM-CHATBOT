@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MLRITM Anvaya | Student Login</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232b7cff'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='18' font-weight='700' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 20%, #172554 0%, #0b1120 60%, #030712 100%);
+      color: #f8fafc;
+      padding: 20px;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15), transparent 40%),
+                  radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15), transparent 40%);
+      pointer-events: none;
+    }
+    .login-card {
+      width: 420px;
+      max-width: 95vw;
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(59, 130, 246, 0.1);
+      padding: 32px 28px;
+      z-index: 1;
+      position: relative;
+    }
+    .logo-wrapper {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffffff, #e2e8f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      border: 3px solid rgba(59, 130, 246, 0.3);
+    }
+    .logo-mark {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-text {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header-text h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+    .header-text p {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .sso-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      color: #93c5fd;
+      margin-top: 8px;
+    }
+    .sso-badge span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3b82f6;
+      box-shadow: 0 0 8px #3b82f6;
+    }
+    .input-group {
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .input-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+    }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      color: #64748b;
+      font-size: 14px;
+      pointer-events: none;
+    }
+    .login-input {
+      width: 100%;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 10px 14px 10px 38px;
+      font-size: 14px;
+      color: #ffffff;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .login-input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+      background: rgba(30, 41, 59, 0.9);
+    }
+    .login-input::placeholder {
+      color: #64748b;
+    }
+    .btn-login {
+      width: 100%;
+      padding: 11px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+      margin-top: 18px;
+    }
+    .btn-login:hover {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+      transform: translateY(-1px);
+    }
+    .btn-login:active {
+      transform: scale(0.98);
+    }
+    .notice {
+      margin-top: 16px;
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .notice strong {
+      color: #94a3b8;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .cancel-link {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    .cancel-link:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="logo-wrapper">
+      <span class="logo-mark">M</span>
+    </div>
+
+    <div class="header-text">
+      <h2>MLRITM ANVAYA</h2>
+      <p>Official Autonomous Student ERP Portal</p>
+      <div class="sso-badge">
+        <span class="dot"></span>
+        <span>Secure Single Sign-On (SSO)</span>
+      </div>
+    </div>
+
+    <!-- Anvaya Credentials Form -->
+    <form id="anvayaForm" method="POST" action="/api/v1/auth/anvaya/authorize">
+      <div class="input-group">
+        <label for="username">Anvaya User Name / Roll Number</label>
+        <div class="input-wrapper">
+          <span class="input-icon">👤</span>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="login-input"
+            placeholder="Enter Roll Number / Username"
+            required
+            autocomplete="username"
+          />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Anvaya Password</label>
+        <div class="input-wrapper">
+          <span class="input-icon">🔒</span>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="login-input"
+            placeholder="••••••••••••"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="btn-login" id="submitBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+        <span>Authorize &amp; Continue to Chatbot</span>
+      </button>
+
+      <a href="/app/" class="cancel-link">Return to Chatbot without signing in</a>
+    </form>
+
+    <div class="notice">
+      🔒 <strong>Privacy Protected:</strong> Your Anvaya password is verified securely by the Anvaya authentication gateway. The chatbot backend never stores or logs your password.
+    </div>
+
+    <div class="footer">
+      Powered by <a href="https://orgmaker.com" target="_blank" rel="noopener">OrgMaker ERP</a> · Marri Laxman Reddy Institute of Technology and Management
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('anvayaForm').addEventListener('submit', function() {
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Authenticating with Anvaya...</span>';
+    });
+  </script>
+</body>
+</html>
