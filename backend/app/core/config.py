@@ -111,6 +111,11 @@ def _sanitize_env():
             parts = [p.strip() for p in raw_val.split(",") if p.strip()]
             os.environ["ALLOWED_ORIGINS"] = _json.dumps(parts)
 
+    if "PROJECT_NAME" in os.environ and not os.environ["PROJECT_NAME"].strip():
+        os.environ["PROJECT_NAME"] = "MLRITM Academic Advising Chatbot"
+    if "API_V1_STR" in os.environ and not os.environ["API_V1_STR"].strip():
+        os.environ["API_V1_STR"] = "/api/v1"
+
 
 _load_anvaya_config_file()
 _sanitize_env()
@@ -277,6 +282,11 @@ class Settings(BaseSettings):
         if "https://mlritm-student-chatbot.vercel.app" not in origins_list:
             origins_list.append("https://mlritm-student-chatbot.vercel.app")
         object.__setattr__(self, "ALLOWED_ORIGINS", origins_list)
+
+        if not getattr(self, "PROJECT_NAME", "").strip():
+            object.__setattr__(self, "PROJECT_NAME", "MLRITM Academic Advising Chatbot")
+        if not getattr(self, "API_V1_STR", "").strip():
+            object.__setattr__(self, "API_V1_STR", "/api/v1")
 
     
     # Redirect plain-HTTP requests to HTTPS (health probes excepted). Turn on wherever the assistant

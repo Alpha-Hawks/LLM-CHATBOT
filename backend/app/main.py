@@ -81,7 +81,7 @@ async def _detailed_error_handler(request: Request, exc: Exception):
     )
 
 app = FastAPI(
-    title=settings.PROJECT_NAME,
+    title=getattr(settings, "PROJECT_NAME", None) or "MLRITM Academic Advising Chatbot",
     description="LLM-Powered Academic Advising Assistant for MLRITM with Anvaya ERP Live Integration.",
     version="1.0.0",
     lifespan=None if is_serverless else lifespan,
