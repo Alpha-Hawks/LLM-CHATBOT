@@ -68,7 +68,8 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     description="LLM-Powered Academic Advising Assistant for MLRITM with Anvaya ERP Live Integration.",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
+    debug=True,
 )
 
 # CORS Policy: Restricted to Anvaya portal, local origins, and all *.vercel.app deployments
