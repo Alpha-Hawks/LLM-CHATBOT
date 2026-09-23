@@ -24,6 +24,14 @@ from backend.app.db.session import init_db
 from backend.app.core.logging import logger
 
 
+is_serverless = bool(
+    os.getenv("VERCEL")
+    or os.getenv("VERCEL_ENV")
+    or os.getenv("AWS_LAMBDA_FUNCTION_NAME")
+    or os.getenv("LAMBDA_TASK_ROOT")
+)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Initializing MLRITM Academic Advising Service...")
@@ -46,11 +54,6 @@ async def lifespan(app: FastAPI):
         logger.warning(f"Database schemas non-fatal warning: {e}")
 
     # Heavy background sync of 256 faculty rows runs locally/workers, skipped during serverless cold starts
-    is_serverless = bool(
-        os.getenv("VERCEL")
-        or os.getenv("VERCEL_ENV")
-        or os.getenv("AWS_LAMBDA_FUNCTION_NAME")
-    )
     if not is_serverless:
         try:
             from backend.app.db.session import AsyncSessionLocal
@@ -81,7 +84,7 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     description="LLM-Powered Academic Advising Assistant for MLRITM with Anvaya ERP Live Integration.",
     version="1.0.0",
-    lifespan=lifespan,
+    lifespan=None if is_serverless else lifespan,
     debug=True,
     exception_handlers={
         500: _detailed_error_handler,

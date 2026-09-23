@@ -15,7 +15,9 @@ try:
     from backend.app.main import app
 except Exception as exc:
     err_tb = traceback.format_exc()
-    print("FATAL ERROR LOADING backend.app.main:\n" + err_tb, file=sys.stderr)
+    err_type = type(exc).__name__
+    err_msg = str(exc)
+    print(f"FATAL ERROR LOADING backend.app.main: {err_type}: {err_msg}\n" + err_tb, file=sys.stderr)
     from fastapi import FastAPI
     from fastapi.responses import PlainTextResponse
 
@@ -24,7 +26,7 @@ except Exception as exc:
     @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"])
     async def _diagnostic_handler(path: str = ""):
         return PlainTextResponse(
-            f"STARTUP ERROR:\n{type(exc).__name__}: {exc}\n\nTRACEBACK:\n{err_tb}",
+            f"STARTUP ERROR:\n{err_type}: {err_msg}\n\nTRACEBACK:\n{err_tb}",
             status_code=500,
         )
 

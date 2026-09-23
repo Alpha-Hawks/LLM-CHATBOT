@@ -106,7 +106,14 @@ async def init_db():
         logger.warning(f"Database init_db non-fatal warning: {e}")
 
 
+_db_initialized = False
+
+
 async def get_db():
     """FastAPI dependency for database sessions."""
+    global _db_initialized
+    if not _db_initialized:
+        await init_db()
+        _db_initialized = True
     async with AsyncSessionLocal() as session:
         yield session
