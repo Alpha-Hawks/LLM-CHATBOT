@@ -1,0 +1,25 @@
+# Tests & Evaluation (prevents Vercel scanner from finding test FastAPI instances)
+tests/
+evaluation/
+training/
+scratch/
+docs/
+
+# Large data and extraction files
+*.csv
+students_master.json
+output/
+data/extracted/
+
+# SQLite databases (Serverless instances use /tmp/ or external DB)
+*.db
+*.sqlite
+*.sqlite3
+
+# Python caches & IDE
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+.idea/
+.git/

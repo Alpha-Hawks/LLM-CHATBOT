@@ -12,11 +12,16 @@ from sqlalchemy.orm import sessionmaker
 from backend.app.core.config import settings
 from backend.app.db.models import Base
 
+import os
+
 logger = logging.getLogger(__name__)
 
-# Normalize SQLite async URL if default sqlite is configured
+# Normalize SQLite async URL if default sqlite is configured.
+# On Vercel serverless functions, the root filesystem is read-only, so default SQLite runs in /tmp
 db_url = settings.DATABASE_URL
-if db_url.startswith("sqlite:///"):
+if os.getenv("VERCEL") and "sqlite" in db_url and not "/tmp" in db_url:
+    db_url = "sqlite+aiosqlite:////tmp/academic_chatbot.db"
+elif db_url.startswith("sqlite:///"):
     db_url = db_url.replace("sqlite:///", "sqlite+aiosqlite:///")
 
 engine = create_async_engine(db_url, echo=False)
