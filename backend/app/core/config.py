@@ -14,6 +14,11 @@ except ImportError:
     except ImportError:
         from pydantic import BaseModel as BaseSettings
 
+try:
+    from pydantic import field_validator
+except ImportError:
+    field_validator = None
+
 import configparser
 
 
@@ -52,7 +57,53 @@ def _load_anvaya_config_file():
                     os.environ[env_k] = v_clean
 
 
+def _safe_int(val, default: int) -> int:
+    if val is None:
+        return default
+    val_str = str(val).strip()
+    if not val_str:
+        return default
+    try:
+        return int(val_str)
+    except (ValueError, TypeError):
+        return default
+
+
+def _safe_float(val, default: float) -> float:
+    if val is None:
+        return default
+    val_str = str(val).strip()
+    if not val_str:
+        return default
+    try:
+        return float(val_str)
+    except (ValueError, TypeError):
+        return default
+
+
+_DEFAULT_FALLBACK_ENV = {
+    "WEB_SEARCH_CACHE_TTL_SECONDS": "86400",
+    "LAUNCH_TOKEN_MAX_AGE_SECONDS": "300",
+    "ANVAYA_API_TIMEOUT_SECONDS": "10",
+    "LIVE_CACHE_TTL_SECONDS": "180",
+    "PROFILE_SYNC_TTL_SECONDS": "900",
+    "PROFILE_MAX_STALE_SECONDS": "86400",
+    "RATE_LIMIT_PER_MINUTE": "30",
+    "SESSION_TTL_MINUTES": "20",
+    "ANVAYA_API_USE_SANDBOX": "false",
+    "ENFORCE_HTTPS": "false",
+}
+
+
+def _sanitize_env():
+    """Ensures empty strings in numeric/boolean env vars do not fail Pydantic validation."""
+    for k, default_val in _DEFAULT_FALLBACK_ENV.items():
+        if k in os.environ and not os.environ[k].strip():
+            os.environ[k] = default_val
+
+
 _load_anvaya_config_file()
+_sanitize_env()
 
 
 class Settings(BaseSettings):
@@ -71,7 +122,7 @@ class Settings(BaseSettings):
     # Google / Web Search Settings (Information Retrieval Layer)
     GOOGLE_SEARCH_API_KEY: str = os.getenv("GOOGLE_SEARCH_API_KEY", "")
     GOOGLE_SEARCH_ENGINE_ID: str = os.getenv("GOOGLE_SEARCH_ENGINE_ID", "")
-    WEB_SEARCH_CACHE_TTL_SECONDS: int = int(os.getenv("WEB_SEARCH_CACHE_TTL_SECONDS", "86400"))
+    WEB_SEARCH_CACHE_TTL_SECONDS: int = _safe_int(os.getenv("WEB_SEARCH_CACHE_TTL_SECONDS"), 86400)
 
     # Official MLRITM Public Sources
     MLRITM_BASE_URL: str = os.getenv("MLRITM_BASE_URL", "https://www.mlritm.ac.in")
@@ -109,7 +160,7 @@ class Settings(BaseSettings):
     LAUNCH_TOKEN_PUBLIC_KEY_FILE: str = os.getenv("LAUNCH_TOKEN_PUBLIC_KEY_FILE", "")
     LAUNCH_TOKEN_JWKS_URL: str = os.getenv("LAUNCH_TOKEN_JWKS_URL", "")
     LAUNCH_TOKEN_HMAC_SECRET: str = os.getenv("LAUNCH_TOKEN_HMAC_SECRET", "")      # only for HS* algorithms
-    LAUNCH_TOKEN_MAX_AGE_SECONDS: int = int(os.getenv("LAUNCH_TOKEN_MAX_AGE_SECONDS", "300"))
+    LAUNCH_TOKEN_MAX_AGE_SECONDS: int = _safe_int(os.getenv("LAUNCH_TOKEN_MAX_AGE_SECONDS"), 300)
 
     # OpenID Connect
     OIDC_ISSUER: str = os.getenv("OIDC_ISSUER", "")
@@ -146,7 +197,7 @@ class Settings(BaseSettings):
     ANVAYA_API_AUTH_SCHEME: str = os.getenv("ANVAYA_API_AUTH_SCHEME", "bearer")
     ANVAYA_API_TOKEN: str = os.getenv("ANVAYA_API_TOKEN", "")
     ANVAYA_API_TOKEN_HEADER: str = os.getenv("ANVAYA_API_TOKEN_HEADER", "X-API-Key")
-    ANVAYA_API_TIMEOUT_SECONDS: float = float(os.getenv("ANVAYA_API_TIMEOUT_SECONDS", "10"))
+    ANVAYA_API_TIMEOUT_SECONDS: float = _safe_float(os.getenv("ANVAYA_API_TIMEOUT_SECONDS"), 10.0)
 
     # Per-feature live read endpoints (empty = use deep-link fallback)
     ANVAYA_PATH_ATTENDANCE: str = os.getenv("ANVAYA_PATH_ATTENDANCE", "")
@@ -167,11 +218,11 @@ class Settings(BaseSettings):
     ANVAYA_LINK_PROFILE: str = os.getenv("ANVAYA_LINK_PROFILE", "https://anvaya.mlritm.ac.in/App/StudentProfile")
 
     # In-memory ephemeral live cache TTL (DPDP Act 2023 compliant)
-    LIVE_CACHE_TTL_SECONDS: int = int(os.getenv("LIVE_CACHE_TTL_SECONDS", "180"))
+    LIVE_CACHE_TTL_SECONDS: int = _safe_int(os.getenv("LIVE_CACHE_TTL_SECONDS"), 180)
 
     # Profile synchronization
-    PROFILE_SYNC_TTL_SECONDS: int = int(os.getenv("PROFILE_SYNC_TTL_SECONDS", "900"))
-    PROFILE_MAX_STALE_SECONDS: int = int(os.getenv("PROFILE_MAX_STALE_SECONDS", "86400"))
+    PROFILE_SYNC_TTL_SECONDS: int = _safe_int(os.getenv("PROFILE_SYNC_TTL_SECONDS"), 900)
+    PROFILE_MAX_STALE_SECONDS: int = _safe_int(os.getenv("PROFILE_MAX_STALE_SECONDS"), 86400)
 
     # Database Settings
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./academic_chatbot.db")
@@ -198,6 +249,17 @@ class Settings(BaseSettings):
                 "http://localhost:8000",
                 "http://127.0.0.1:8000",
             ])
+        # Automatically permit Vercel domains if deployed on Vercel
+        origins = list(self.ALLOWED_ORIGINS)
+        vercel_url = os.getenv("VERCEL_URL")
+        if vercel_url and f"https://{vercel_url}" not in origins:
+            origins.append(f"https://{vercel_url}")
+        vercel_prod = os.getenv("VERCEL_PROJECT_PRODUCTION_URL")
+        if vercel_prod and f"https://{vercel_prod}" not in origins:
+            origins.append(f"https://{vercel_prod}")
+        if "https://mlritm-student-chatbot.vercel.app" not in origins:
+            origins.append("https://mlritm-student-chatbot.vercel.app")
+        object.__setattr__(self, "ALLOWED_ORIGINS", origins)
 
     
     # Redirect plain-HTTP requests to HTTPS (health probes excepted). Turn on wherever the assistant

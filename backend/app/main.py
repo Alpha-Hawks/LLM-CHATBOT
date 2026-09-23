@@ -55,10 +55,11 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS Policy: Restricted to Anvaya portal and local development origins
+# CORS Policy: Restricted to Anvaya portal, local origins, and all *.vercel.app deployments
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.ALLOWED_ORIGINS,
+    allow_origin_regex=r"^https:\/\/.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
