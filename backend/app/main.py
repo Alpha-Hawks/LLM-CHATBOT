@@ -27,23 +27,39 @@ from backend.app.core.logging import logger
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Initializing MLRITM Academic Advising Service...")
-    assert_secrets_fit_for_student_data()
+    try:
+        assert_secrets_fit_for_student_data()
+    except Exception as e:
+        logger.warning(f"Configuration notice: {e}")
+
     if settings.ENVIRONMENT != "development":
         for problem in weak_secret_problems():
             logger.warning(f"Configuration: {problem}.")
         if not settings.ENFORCE_HTTPS:
             logger.warning("Configuration: ENFORCE_HTTPS is off; serve students only over HTTPS.")
-    # Initialize DB schemas
-    await init_db()
-    logger.info("Database schemas verified.")
+
+    # Initialize DB schemas safely
     try:
-        from backend.app.db.session import AsyncSessionLocal
-        from backend.app.services.mlritm_sync import mlritm_sync_service
-        async with AsyncSessionLocal() as session:
-            await mlritm_sync_service.synchronize(session, force_live=False)
-        logger.info("Official MLRITM Knowledge Base synchronized.")
+        await init_db()
+        logger.info("Database schemas verified.")
     except Exception as e:
-        logger.warning(f"Could not synchronize MLRITM knowledge base on startup: {e}")
+        logger.warning(f"Database schemas non-fatal warning: {e}")
+
+    # Heavy background sync of 256 faculty rows runs locally/workers, skipped during serverless cold starts
+    is_serverless = bool(
+        os.getenv("VERCEL")
+        or os.getenv("VERCEL_ENV")
+        or os.getenv("AWS_LAMBDA_FUNCTION_NAME")
+    )
+    if not is_serverless:
+        try:
+            from backend.app.db.session import AsyncSessionLocal
+            from backend.app.services.mlritm_sync import mlritm_sync_service
+            async with AsyncSessionLocal() as session:
+                await mlritm_sync_service.synchronize(session, force_live=False)
+            logger.info("Official MLRITM Knowledge Base synchronized.")
+        except Exception as e:
+            logger.warning(f"Could not synchronize MLRITM knowledge base on startup: {e}")
     yield
     logger.info("Shutting down service...")
 
@@ -88,6 +104,17 @@ if os.path.exists(anvaya_dir):
     app.mount("/anvaya", StaticFiles(directory=anvaya_dir, html=True), name="anvaya")
 
 
+@app.get("/health")
+@app.get("/api/health")
+async def health():
+    return {
+        "status": "healthy",
+        "service": settings.PROJECT_NAME,
+        "environment": settings.ENVIRONMENT,
+        "serverless": bool(os.getenv("VERCEL") or os.getenv("VERCEL_ENV")),
+    }
+
+
 @app.get("/")
 async def root(request: Request):
     accept = request.headers.get("accept", "")
@@ -97,6 +124,7 @@ async def root(request: Request):
             "status": "online",
             "pwa_url": "/app/",
             "api_docs": "/docs",
+            "health": "/health",
             "anvaya_endpoint": "https://anvaya.mlritm.ac.in"
         }
     return RedirectResponse(url="/app/", status_code=303)

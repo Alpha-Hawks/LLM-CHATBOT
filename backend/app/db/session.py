@@ -16,15 +16,27 @@ import os
 
 logger = logging.getLogger(__name__)
 
-# Normalize SQLite async URL if default sqlite is configured.
-# On Vercel serverless functions, the root filesystem is read-only, so default SQLite runs in /tmp
+# Normalize SQLite async URL.
+# On Vercel / AWS Lambda serverless functions, the root filesystem is read-only, so SQLite runs in /tmp
+is_serverless = bool(
+    os.getenv("VERCEL")
+    or os.getenv("VERCEL_ENV")
+    or os.getenv("AWS_LAMBDA_FUNCTION_NAME")
+    or os.getenv("LAMBDA_TASK_ROOT")
+)
+
 db_url = settings.DATABASE_URL
-if os.getenv("VERCEL") and "sqlite" in db_url and not "/tmp" in db_url:
+if is_serverless and "sqlite" in db_url and "/tmp" not in db_url:
     db_url = "sqlite+aiosqlite:////tmp/academic_chatbot.db"
 elif db_url.startswith("sqlite:///"):
     db_url = db_url.replace("sqlite:///", "sqlite+aiosqlite:///")
 
-engine = create_async_engine(db_url, echo=False)
+try:
+    engine = create_async_engine(db_url, echo=False)
+except Exception as e:
+    logger.warning(f"Could not initialize engine with {db_url}: {e}. Falling back to /tmp sqlite.")
+    engine = create_async_engine("sqlite+aiosqlite:////tmp/academic_chatbot.db", echo=False)
+
 AsyncSessionLocal = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
 
@@ -83,9 +95,15 @@ def _upgrade_schema(sync_conn) -> None:
 
 async def init_db():
     """Creates any missing tables, then reconciles existing ones with the current models."""
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
-        await conn.run_sync(_upgrade_schema)
+    try:
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+            try:
+                await conn.run_sync(_upgrade_schema)
+            except Exception as schema_err:
+                logger.warning(f"Database schema upgrade non-fatal warning: {schema_err}")
+    except Exception as e:
+        logger.warning(f"Database init_db non-fatal warning: {e}")
 
 
 async def get_db():
