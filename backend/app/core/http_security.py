@@ -51,13 +51,13 @@ class SecurityHeadersMiddleware:
         self.app = app
 
     async def __call__(self, scope, receive, send):
-        if scope["type"] != "http":
+        if scope.get("type") != "http":
             await self.app(scope, receive, send)
             return
 
-        path = scope["path"]
+        path = scope.get("path", "")
         is_api = path.startswith(settings.API_V1_STR)
-        is_probe = path.startswith(f"{settings.API_V1_STR}/health")
+        is_probe = path.startswith(f"{settings.API_V1_STR}/health") or path.startswith("/health")
         https = _request_is_https(scope)
 
         if settings.ENFORCE_HTTPS and not https and not is_probe:
@@ -71,22 +71,28 @@ class SecurityHeadersMiddleware:
             return
 
         async def send_with_headers(message):
-            if message["type"] == "http.response.start":
-                headers: List[Tuple[bytes, bytes]] = list(message.get("headers", []))
-                present = {name.lower() for name, _ in headers}
+            if message.get("type") == "http.response.start":
+                try:
+                    headers: List[Tuple[bytes, bytes]] = list(message.get("headers", []))
+                    present = {name.lower() for name, _ in headers}
 
-                def add(name: bytes, value: bytes):
-                    if name not in present:
-                        headers.append((name, value))
+                    def add(name: bytes, value: bytes):
+                        if name not in present:
+                            headers.append((name, value))
 
-                add(b"x-content-type-options", b"nosniff")
-                add(b"referrer-policy", b"no-referrer")
-                add(b"content-security-policy", _frame_ancestors().encode("latin-1"))
-                if is_api:
-                    add(b"cache-control", b"no-store")
-                if https and settings.ENVIRONMENT != "development":
-                    add(b"strict-transport-security", HSTS_VALUE)
-                message = {**message, "headers": headers}
+                    add(b"x-content-type-options", b"nosniff")
+                    add(b"referrer-policy", b"no-referrer")
+                    try:
+                        add(b"content-security-policy", _frame_ancestors().encode("latin-1"))
+                    except Exception:
+                        pass
+                    if is_api:
+                        add(b"cache-control", b"no-store")
+                    if https and settings.ENVIRONMENT != "development":
+                        add(b"strict-transport-security", HSTS_VALUE)
+                    message = {**message, "headers": headers}
+                except Exception:
+                    pass
             await send(message)
 
         await self.app(scope, receive, send_with_headers)

@@ -12,40 +12,7 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 try:
-    from backend.app.main import app as base_app  # noqa: E402
-
-    class ErrorExposingMiddleware:
-        def __init__(self, asgi_app):
-            self.asgi_app = asgi_app
-
-        async def __call__(self, scope, receive, send):
-            try:
-                await self.asgi_app(scope, receive, send)
-            except Exception as exc:
-                err_tb = traceback.format_exc()
-                print("FATAL ERROR IN REQUEST:\n" + err_tb, file=sys.stderr)
-                if scope.get("type") == "http":
-                    body = (
-                        f"FATAL APPLICATION ERROR:\n{type(exc).__name__}: {exc}\n\n"
-                        f"TRACEBACK:\n{err_tb}"
-                    ).encode("utf-8")
-                    await send({
-                        "type": "http.response.start",
-                        "status": 500,
-                        "headers": [
-                            (b"content-type", b"text/plain; charset=utf-8"),
-                            (b"content-length", str(len(body)).encode("ascii")),
-                        ],
-                    })
-                    await send({
-                        "type": "http.response.body",
-                        "body": body,
-                    })
-                else:
-                    raise
-
-    app = ErrorExposingMiddleware(base_app)
-
+    from backend.app.main import app
 except Exception as exc:
     err_tb = traceback.format_exc()
     print("FATAL ERROR LOADING backend.app.main:\n" + err_tb, file=sys.stderr)

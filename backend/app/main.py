@@ -64,12 +64,29 @@ async def lifespan(app: FastAPI):
     logger.info("Shutting down service...")
 
 
+from starlette.middleware.errors import ServerErrorMiddleware
+from fastapi.responses import PlainTextResponse
+
+
+async def _detailed_error_handler(request: Request, exc: Exception):
+    import traceback
+    tb = traceback.format_exc()
+    logger.error(f"Internal 500 error: {tb}")
+    return PlainTextResponse(
+        f"INTERNAL APPLICATION ERROR:\n{type(exc).__name__}: {exc}\n\nTRACEBACK:\n{tb}",
+        status_code=500
+    )
+
 app = FastAPI(
     title=settings.PROJECT_NAME,
     description="LLM-Powered Academic Advising Assistant for MLRITM with Anvaya ERP Live Integration.",
     version="1.0.0",
     lifespan=lifespan,
     debug=True,
+    exception_handlers={
+        500: _detailed_error_handler,
+        Exception: _detailed_error_handler,
+    }
 )
 
 # CORS Policy: Restricted to Anvaya portal, local origins, and all *.vercel.app deployments
