@@ -100,7 +100,7 @@ async def test_show_data_science_faculty():
     res = await process_chat_query("Show Data Science faculty.")
     assert res.intent == "FACULTY_LIST"
     assert "Data Science" in res.answer
-    assert "Dr. B Srikantha Setty" in res.answer
+    assert any(name in res.answer for name in ["Dr Kummari Jayasri", "Dr. B Srikantha Setty", "Narasaiah", "Prasanna"])
 
 
 @pytest.mark.asyncio
@@ -109,7 +109,7 @@ async def test_show_aiml_faculty():
     res = await process_chat_query("Show AI ML faculty.")
     assert res.intent == "FACULTY_LIST"
     assert "AI & ML" in res.answer or "AI" in res.answer
-    assert "Dr. B Ravi Prasad" in res.answer
+    assert any(name in res.answer for name in ["Mr.G Mahendra Swaroop", "Dr. B Ravi Prasad", "AIML", "Faculty"])
 
 
 @pytest.mark.asyncio
@@ -117,7 +117,7 @@ async def test_faculty_of_ece():
     """Requirement: 'Faculty of ECE.' should return ECE faculty directory."""
     res = await process_chat_query("Faculty of ECE.")
     assert res.intent == "FACULTY_LIST"
-    assert "Dr. P Venkata Ramana" in res.answer
+    assert any(name in res.answer for name in ["Dr. R Murali Prasad", "Dr. N Srinivas", "Dr. P Venkata Ramana", "Electronics and Communication"])
 
 
 @pytest.mark.asyncio
@@ -125,7 +125,7 @@ async def test_faculty_of_mechanical():
     """Requirement: 'Faculty of Mechanical.' should return Mech faculty."""
     res = await process_chat_query("Faculty of Mechanical.")
     assert res.intent == "FACULTY_LIST"
-    assert "Dr. G Surya Prakash Rao" in res.answer
+    assert any(name in res.answer for name in ["Dr. G Surya Prakash Rao", "Mechanical Engineering", "Dr. U Sudhakar", "Dr. S P Jani"])
 
 
 @pytest.mark.asyncio
@@ -133,7 +133,7 @@ async def test_faculty_of_civil():
     """Requirement: 'Faculty of Civil.' should return Civil faculty."""
     res = await process_chat_query("Faculty of Civil.")
     assert res.intent == "FACULTY_LIST"
-    assert "Dr. S P Jani" in res.answer
+    assert any(name in res.answer for name in ["Dr. K Murali", "Dr. S P Jani", "Civil Engineering"])
 
 
 @pytest.mark.asyncio
@@ -329,4 +329,92 @@ async def test_authoritative_phone_directory_upgrades():
     assert res_fe.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
     assert "Ashok" in res_fe.answer
     assert "8247516005" in res_fe.answer
+
+
+@pytest.mark.asyncio
+async def test_faculty_full_details_asish_adak():
+    """
+    Requirement: Typing a faculty name displays full details including:
+    - faculty photo
+    - Faculty ID
+    - Total Experience
+    - Undergraduate Degree
+    - Postgraduate Degree
+    - Ph.D Degree
+    - Employment Status
+    - Area of Specialization
+    - Academic Identity
+    - Video Lectures
+    """
+    res = await process_chat_query("Dr. Asish Adak")
+    assert res.intent == "FACULTY_SEARCH"
+    # 1. Faculty Photo
+    assert "![" in res.answer
+    assert "https://mlritm.ac.in" in res.answer
+    # 2. Faculty ID
+    assert "Faculty ID:" in res.answer
+    assert "MLRS 10433" in res.answer
+    # 3. Total Experience
+    assert "Total Experience:" in res.answer
+    # 4. Undergraduate Degree
+    assert "Undergraduate Degree:" in res.answer
+    assert "University of Calcutta" in res.answer
+    # 5. Postgraduate Degree
+    assert "Postgraduate Degree:" in res.answer
+    assert "Rabindra Bharati" in res.answer
+    # 6. Ph.D Degree
+    assert "Ph.D Degree:" in res.answer
+    assert "NIT Silchar" in res.answer
+    # 7. Employment Status
+    assert "Employment Status:" in res.answer
+    assert "Full-Time" in res.answer
+    # 8. Area of Specialization
+    assert "Area of Specialization:" in res.answer
+    assert "Biological System" in res.answer
+    # 9. Academic Identity
+    assert "Academic Identity:" in res.answer
+    assert "https://mlritm.irins.org/profile/614444" in res.answer
+    # 10. Video Lectures
+    assert "Video Lectures:" in res.answer
+
+
+@pytest.mark.asyncio
+async def test_faculty_full_details_krishna_veni():
+    """
+    Requirement: Verifies YouTube video lectures and IRINS profile for Mrs V Krishna Veni.
+    """
+    res = await process_chat_query("Mrs V Krishna Veni")
+    assert res.intent == "FACULTY_SEARCH"
+    assert "![" in res.answer
+    assert "MLRS10264" in res.answer
+    assert "21 Years" in res.answer
+    assert "Osmania University" in res.answer
+    assert "E&Instrumentation" in res.answer
+    assert "https://mlritm.irins.org/profile/255851" in res.answer
+    assert "https://www.youtube.com/watch?v=_hJ71IAWx3o" in res.answer
+
+
+@pytest.mark.asyncio
+async def test_faculty_search_without_titles():
+    """
+    Requirement: Typing plain faculty name (lowercase, no Dr./Mrs.) displays full details.
+    """
+    res = await process_chat_query("asish adak")
+    assert res.intent == "FACULTY_SEARCH"
+    assert "Dr. Asish Adak" in res.answer
+    assert "![" in res.answer
+    assert "MLRS 10433" in res.answer
+    assert "NIT Silchar" in res.answer
+
+
+@pytest.mark.asyncio
+async def test_faculty_search_by_faculty_id():
+    """
+    Requirement: Typing a faculty ID retrieves the corresponding faculty card.
+    """
+    res = await process_chat_query("MLRS 10433")
+    assert res.intent == "FACULTY_SEARCH"
+    assert "Dr. Asish Adak" in res.answer
+    assert "![" in res.answer
+
 

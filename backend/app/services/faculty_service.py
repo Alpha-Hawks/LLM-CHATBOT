@@ -100,26 +100,39 @@ class FacultyIntelligenceService:
         code = department_code.upper().strip()
         faculty_list = await self.get_all_faculty(db)
 
-        # 1. Check registry definition first with department scope
+        # 1. Check registry definition first with exact / clean name similarity
         if code in DEPARTMENT_REGISTRY:
             reg_info = DEPARTMENT_REGISTRY[code]
             hod_name = reg_info["hod_name"]
+            c_hod = re.sub(r"[^a-z]", "", hod_name.lower().replace("dr", "").replace("prof", "").replace("mr", "").replace("mrs", "").replace("ms", ""))
+
+            best_f = None
+            best_score = 0.0
             for f in faculty_list:
-                if f.get("department_code") == code and SequenceMatcher(None, f["name"].lower(), hod_name.lower()).ratio() >= 0.70:
-                    return f
+                c_f = re.sub(r"[^a-z]", "", f["name"].lower().replace("dr", "").replace("prof", "").replace("mr", "").replace("mrs", "").replace("ms", ""))
+                score = SequenceMatcher(None, c_hod, c_f).ratio()
+                if f.get("department_code") == code:
+                    score += 0.20
+                if score > best_score:
+                    best_score = score
+                    best_f = f
+
+            if best_f and best_score >= 0.85:
+                f_copy = dict(best_f)
+                f_copy["is_hod"] = True
+                f_copy["designation"] = reg_info["hod_designation"]
+                f_copy["department"] = reg_info["name"]
+                f_copy["department_code"] = code
+                if reg_info.get("hod_email"):
+                    f_copy["email"] = reg_info["hod_email"]
+                if reg_info.get("hod_phone"):
+                    f_copy["phone"] = reg_info["hod_phone"]
+                return f_copy
 
         # 2. Search for official is_hod flag in department
         for f in faculty_list:
             if f.get("department_code") == code and f.get("is_hod"):
                 return f
-
-        # 3. Fallback to any department_code if unassigned in database
-        if code in DEPARTMENT_REGISTRY:
-            reg_info = DEPARTMENT_REGISTRY[code]
-            hod_name = reg_info["hod_name"]
-            for f in faculty_list:
-                if f["name"].lower() == hod_name.lower():
-                    return f
 
         # 3. Return synthetic record from registry if not found in db
         if code in DEPARTMENT_REGISTRY:
@@ -289,17 +302,39 @@ class FacultyIntelligenceService:
 
     def format_faculty_card(self, f: Dict[str, Any], is_short_query: bool = False) -> str:
         """
-        Produces a clean student-friendly faculty profile response.
-        Only displays fields that are actually available. Never fabricates empty fields.
+        Produces a rich, comprehensive student-friendly faculty profile card.
+        Always displays the 10 authoritative fields required:
+        1. Faculty Photo
+        2. Faculty ID
+        3. Total Experience (and Experience @ MLRITM)
+        4. Undergraduate Degree
+        5. Postgraduate Degree
+        6. Ph.D Degree
+        7. Employment Status
+        8. Area of Specialization
+        9. Academic Identity (IRINS / Vidwan Profile link)
+        10. Video Lectures (YouTube link)
+        Along with official Designation, Department, Email, Phone, and Official Profile link.
         """
         name = f.get("name", "Faculty Member")
         desig = f.get("designation", "Faculty")
         dept = f.get("department", "MLRITM")
-        profile_url = f.get("profile_url", "https://mlritm.ac.in/faculty-profile")
+        profile_url = f.get("profile_url") or f.get("source_url") or "https://mlritm.ac.in/faculty-profile"
+        photo_url = f.get("photo_url", "")
+        faculty_id = f.get("faculty_id", "Not Available")
+        total_exp = f.get("total_experience", "Not Available")
+        exp_mlritm = f.get("experience_mlritm", "Not Available")
+        ug_degree = f.get("undergraduate_degree", "Not Available")
+        pg_degree = f.get("postgraduate_degree", "Not Available")
+        phd_degree = f.get("phd_degree", "Not Available")
+        emp_status = f.get("employment_status", "Full-Time")
+        spec = f.get("specialization") or f.get("research_interests") or "Not Available"
+        academic_id_url = f.get("academic_identity_url", "Not Available")
+        video_url = f.get("video_lectures_url", "Not Available")
         email = f.get("email", "Not Available")
         phone = f.get("phone", "Not Available")
 
-        # Ultra-short representation for ultra-short queries
+        # Ultra-short representation ONLY for generic HOD lookups (e.g. "cse hod") where is_short_query is explicitly True
         if is_short_query and f.get("is_hod"):
             lines = [
                 f"**{dept} HOD:** {name}",
@@ -313,54 +348,62 @@ class FacultyIntelligenceService:
             lines.append(f"- **Official Profile:** [View Official Profile]({profile_url})")
             return "\n".join(lines)
 
-        lines = [
-            f"### 👤 {name}",
-            f"- **Designation:** {desig}",
-            f"- **Department:** {dept}",
-        ]
+        lines = [f"### 👤 {name}"]
 
-        if f.get("faculty_id") and f["faculty_id"] != "Not Available":
-            lines.append(f"- **Faculty ID:** `{f['faculty_id']}`")
+        # 1. Faculty Photo
+        if photo_url and photo_url != "Not Available" and photo_url.startswith("http"):
+            lines.append(f"\n![{name}]({photo_url})\n")
 
-        # Education block
-        edu_parts = []
-        if f.get("undergraduate_degree") and f["undergraduate_degree"] != "Not Available":
-            edu_parts.append(f"  - **Undergraduate:** {f['undergraduate_degree']}")
-        if f.get("postgraduate_degree") and f["postgraduate_degree"] != "Not Available":
-            edu_parts.append(f"  - **Postgraduate:** {f['postgraduate_degree']}")
-        if f.get("phd_degree") and f["phd_degree"] != "Not Available":
-            edu_parts.append(f"  - **Ph.D Degree:** {f['phd_degree']}")
-        if edu_parts:
-            lines.append("- **Education:**\n" + "\n".join(edu_parts))
+        # Designation & Department
+        lines.append(f"- **Designation:** {desig}")
+        lines.append(f"- **Department:** {dept}")
 
-        # Specialization & Experience
-        if f.get("specialization") and f["specialization"] != "Not Available":
-            lines.append(f"- **Area of Specialization:** {f['specialization']}")
+        # 2. Faculty ID
+        lines.append(f"- **Faculty ID:** `{faculty_id}`" if faculty_id != "Not Available" else "- **Faculty ID:** Not Available")
 
-        exp_parts = []
-        if f.get("total_experience") and f["total_experience"] != "Not Available":
-            exp_parts.append(f"Total: {f['total_experience']}")
-        if f.get("experience_mlritm") and f["experience_mlritm"] != "Not Available":
-            exp_parts.append(f"Experience @ MLRITM: {f['experience_mlritm']}")
-        if exp_parts:
-            lines.append(f"- **Teaching Experience:** {', '.join(exp_parts)}")
+        # 3. Total Experience (and Experience @ MLRITM)
+        if total_exp != "Not Available" and exp_mlritm != "Not Available":
+            lines.append(f"- **Total Experience:** {total_exp} *(Experience @ MLRITM: {exp_mlritm})*")
+        elif total_exp != "Not Available":
+            lines.append(f"- **Total Experience:** {total_exp}")
+        elif exp_mlritm != "Not Available":
+            lines.append(f"- **Total Experience:** Experience @ MLRITM: {exp_mlritm}")
+        else:
+            lines.append(f"- **Total Experience:** Not Available")
 
-        if f.get("employment_status") and f["employment_status"] != "Not Available":
-            lines.append(f"- **Employment Status:** {f['employment_status']}")
+        # 4. Undergraduate Degree
+        lines.append(f"- **Undergraduate Degree:** {ug_degree}")
 
-        # Contact info
+        # 5. Postgraduate Degree
+        lines.append(f"- **Postgraduate Degree:** {pg_degree}")
+
+        # 6. Ph.D Degree
+        lines.append(f"- **Ph.D Degree:** {phd_degree}")
+
+        # 7. Employment Status
+        lines.append(f"- **Employment Status:** {emp_status}")
+
+        # 8. Area of Specialization
+        lines.append(f"- **Area of Specialization:** {spec}")
+
+        # 9. Academic Identity
+        if academic_id_url != "Not Available" and academic_id_url.startswith("http"):
+            lines.append(f"- **Academic Identity:** [IRINS / Vidwan Profile]({academic_id_url})")
+        else:
+            lines.append(f"- **Academic Identity:** Not Available")
+
+        # 10. Video Lectures
+        if video_url != "Not Available" and video_url.startswith("http"):
+            lines.append(f"- **Video Lectures:** [Watch on YouTube]({video_url})")
+        else:
+            lines.append(f"- **Video Lectures:** Not Available")
+
+        # Contact info & Official profile
         if email != "Not Available":
             lines.append(f"- **Email:** ✉️ [{email}](mailto:{email})")
         if phone != "Not Available":
-            lines.append(f"- **Phone:** 📞 [{phone}](tel:{phone.replace(' ', '')})")
-
-        # Academic Identity & Video Lectures
-        if f.get("academic_identity_url") and f["academic_identity_url"] != "Not Available":
-            lines.append(f"- **Academic Identity:** [IRINS / Vidwan Profile]({f['academic_identity_url']})")
-        if f.get("video_lectures_url") and f["video_lectures_url"] != "Not Available":
-            lines.append(f"- **Video Lectures:** [YouTube Playlist]({f['video_lectures_url']})")
-
-        # Official profile link
+            clean_phone = phone.replace(" ", "")
+            lines.append(f"- **Phone:** 📞 [{phone}](tel:{clean_phone})")
         lines.append(f"- **Official Profile:** [View Official Profile]({profile_url})")
 
         return "\n".join(lines)

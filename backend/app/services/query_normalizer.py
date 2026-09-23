@@ -9,12 +9,65 @@ Implements:
 5. Fuzzy matching with configurable confidence thresholds (>=0.85 auto, 0.60-0.84 candidates, <0.60 clarification)
 6. Ambiguous short query detection (e.g. "english" -> clarification)
 """
-
+import json
 import re
 import unicodedata
 from difflib import SequenceMatcher
-from typing import Any, Dict, List, Optional, Tuple
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set, Tuple
 from pydantic import BaseModel, Field
+
+
+def _load_all_faculty_names() -> Tuple[Set[str], Set[str], Set[str]]:
+    """Loads all normalized names, individual name tokens, and faculty IDs from seed."""
+    full_names: Set[str] = set()
+    name_tokens: Set[str] = set()
+    faculty_ids: Set[str] = set()
+
+    stopwords = {
+        "department", "college", "engineering", "science", "computer", "technology",
+        "hostel", "fee", "fees", "exam", "exams", "library", "sports", "admission",
+        "admissions", "placement", "placements", "bus", "transport", "syllabus",
+        "curriculum", "grade", "grades", "attendance", "result", "results", "hall",
+        "ticket", "autonomous", "regulation", "contact", "contacts", "phone", "email",
+        "dean", "principal", "director", "hod", "head", "what", "when", "where", "which",
+        "tell", "show", "details", "about", "faculty", "teacher", "professor", "staff",
+        "sir", "madam", "and", "the", "for", "with", "from", "info", "information"
+    }
+
+    try:
+        possible_paths = [
+            Path(__file__).resolve().parent.parent.parent.parent / "data" / "mlritm_faculty_seed.json",
+            Path.cwd() / "data" / "mlritm_faculty_seed.json",
+        ]
+        seed_file = next((p for p in possible_paths if p.exists()), None)
+        if seed_file:
+            with open(seed_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                for item in data.get("faculty", []):
+                    name = item.get("name", "").lower()
+                    clean_name = re.sub(r"^(dr|prof|professor|mr|mrs|ms)\.?\s+", "", name).strip()
+                    if clean_name:
+                        full_names.add(clean_name)
+                    full_names.add(name)
+
+                    words = re.sub(r"[^a-z\s]", " ", name).split()
+                    for w in words:
+                        if len(w) >= 3 and w not in stopwords:
+                            name_tokens.add(w)
+
+                    fac_id = item.get("faculty_id", "").strip().lower()
+                    if fac_id and fac_id != "not available":
+                        faculty_ids.add(fac_id)
+                        faculty_ids.add(fac_id.replace(" ", ""))
+    except Exception:
+        pass
+
+    return full_names, name_tokens, faculty_ids
+
+
+ALL_FACULTY_FULL_NAMES, ALL_FACULTY_NAME_TOKENS, ALL_FACULTY_IDS = _load_all_faculty_names()
+
 
 
 class QueryUnderstandingResult(BaseModel):
@@ -504,19 +557,30 @@ class QueryNormalizer:
             )
 
         # ---------------------------------------------------------------------
-        # 8. Specific Faculty Name or Profile Search (e.g. "basith", "abdul basith", "dr basith")
+        # 8. Specific Faculty Name or Profile Search (matches ANY official faculty member)
         # ---------------------------------------------------------------------
-        known_faculty_tokens = [
-            "basith", "basit", "abdul", "nagalakshmi", "sridhar", "murali",
-            "prasad", "revathi", "jani", "niranjan", "ramana", "sowjanya",
-            "venkat", "ashok", "kavitha", "suresh"
-        ]
-        found_faculty = any(t in norm_q for t in known_faculty_tokens)
-        if found_faculty or re.search(r"\b(dr\b|prof\b|professor\b|mr\b|mrs\b|ms\b)", norm_q):
+        is_exact_faculty = any(fn in norm_q for fn in ALL_FACULTY_FULL_NAMES if len(fn) > 4)
+        is_faculty_id = any(fid in norm_q.replace(" ", "") for fid in ALL_FACULTY_IDS)
+        query_words = set(re.sub(r"[^a-z\s]", " ", norm_q).split())
+        matched_tokens = query_words.intersection(ALL_FACULTY_NAME_TOKENS)
+
+        has_title = bool(re.search(r"\b(dr\b|prof\b|professor\b|mr\b|mrs\b|ms\b|sir\b|madam\b)", norm_q))
+        has_query_cue = bool(re.search(r"\b(who is|tell me about|details of|profile of|info on|show me|about|faculty)\b", norm_q))
+
+        found_faculty = (
+            is_exact_faculty
+            or is_faculty_id
+            or (len(matched_tokens) >= 2)
+            or (has_title and len(matched_tokens) >= 1)
+            or (has_query_cue and len(matched_tokens) >= 1)
+            or (len(query_words) <= 2 and len(matched_tokens) >= 1 and not dept_match)
+        )
+
+        if found_faculty:
             intent = "FACULTY_SEARCH"
-            confidence = 0.95
+            confidence = 0.98
             entities["faculty_query"] = raw_query
-            expanded_terms.extend(["Faculty Profile", "Qualifications", "Official Profile"])
+            expanded_terms.extend(["Faculty Profile", "Qualifications", "Official Profile", "Teaching Experience"])
             return QueryUnderstandingResult(
                 raw_query=raw_query,
                 normalized_query=norm_q,

@@ -558,9 +558,7 @@ async def process_chat_query(
                     f"🔗 [View Official Profile]({top_f['profile_url']})"
                 )
             else:
-                words = message.strip().split()
-                is_short = len(words) <= 2 and not any(k in message.lower() for k in ["detail", "more", "tell me", "profile"])
-                answer = faculty_service.format_faculty_card(top_f, is_short_query=is_short)
+                answer = faculty_service.format_faculty_card(top_f, is_short_query=False)
 
             return ChatResponse(
                 answer=answer,
