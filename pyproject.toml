@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 [tool.vercel]
-entrypoint = "main:app"
+entrypoint = "api.index:app"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

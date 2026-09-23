@@ -77,7 +77,24 @@ async def _detailed_error_handler(request: Request, exc: Exception):
     logger.error(f"Internal 500 error: {tb}")
     return PlainTextResponse(
         f"INTERNAL APPLICATION ERROR:\n{type(exc).__name__}: {exc}\n\nTRACEBACK:\n{tb}",
-        status_code=500
+        status_code=500,
+    )
+
+
+from fastapi.responses import JSONResponse
+
+
+async def _diagnostic_404_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=404,
+        content={
+            "detail": "Route Not Found",
+            "url": str(request.url),
+            "path": request.url.path,
+            "scope_path": request.scope.get("path"),
+            "root_path": request.scope.get("root_path"),
+            "headers": {k: v for k, v in request.headers.items() if "auth" not in k.lower() and "cookie" not in k.lower()},
+        }
     )
 
 app = FastAPI(
@@ -87,6 +104,7 @@ app = FastAPI(
     lifespan=None if is_serverless else lifespan,
     debug=True,
     exception_handlers={
+        404: _diagnostic_404_handler,
         500: _detailed_error_handler,
         Exception: _detailed_error_handler,
     }
@@ -126,22 +144,32 @@ if os.path.exists(anvaya_dir):
 
 
 @app.get("/health")
+@app.get("/health/")
 @app.get("/api/health")
+@app.get("/api/health/")
+@app.get("/api/index.py/health")
+@app.get("/api/index/health")
+@app.get("/main.py/health")
+@app.get("/main/health")
 async def health():
     return {
         "status": "healthy",
-        "service": settings.PROJECT_NAME,
+        "service": getattr(settings, "PROJECT_NAME", None) or "MLRITM Academic Advising Chatbot",
         "environment": settings.ENVIRONMENT,
         "serverless": bool(os.getenv("VERCEL") or os.getenv("VERCEL_ENV")),
     }
 
 
 @app.get("/")
+@app.get("/api/index.py")
+@app.get("/api/index")
+@app.get("/main.py")
+@app.get("/main")
 async def root(request: Request):
     accept = request.headers.get("accept", "")
     if "application/json" in accept and "text/html" not in accept:
         return {
-            "service": settings.PROJECT_NAME,
+            "service": getattr(settings, "PROJECT_NAME", None) or "MLRITM Academic Advising Chatbot",
             "status": "online",
             "pwa_url": "/app/",
             "api_docs": "/docs",

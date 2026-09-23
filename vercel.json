@@ -3,12 +3,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/main.py"
+      "destination": "/api/index.py"
     }
-  ],
-  "functions": {
-    "main.py": {
-      "excludeFiles": "{tests/**,__tests__/**,**/*.test.py,**/test_*.py,training/**,evaluation/**,scratch/**,docs/**,*.csv,students_master.json}"
-    }
-  }
+  ]
 }
