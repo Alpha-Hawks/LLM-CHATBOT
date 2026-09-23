@@ -100,19 +100,30 @@ class FacultyIntelligenceService:
         code = department_code.upper().strip()
         faculty_list = await self.get_all_faculty(db)
 
-        # 1. Search for official is_hod flag in department
-        for f in faculty_list:
-            if f.get("department_code") == code and f.get("is_hod"):
-                return f
-
-        # 2. Check registry definition
+        # 1. Check registry definition first with department scope
         if code in DEPARTMENT_REGISTRY:
             reg_info = DEPARTMENT_REGISTRY[code]
             hod_name = reg_info["hod_name"]
             for f in faculty_list:
-                if SequenceMatcher(None, f["name"].lower(), hod_name.lower()).ratio() >= 0.80:
+                if f.get("department_code") == code and SequenceMatcher(None, f["name"].lower(), hod_name.lower()).ratio() >= 0.70:
                     return f
-            # Return synthetic record from registry if not found in db
+
+        # 2. Search for official is_hod flag in department
+        for f in faculty_list:
+            if f.get("department_code") == code and f.get("is_hod"):
+                return f
+
+        # 3. Fallback to any department_code if unassigned in database
+        if code in DEPARTMENT_REGISTRY:
+            reg_info = DEPARTMENT_REGISTRY[code]
+            hod_name = reg_info["hod_name"]
+            for f in faculty_list:
+                if f["name"].lower() == hod_name.lower():
+                    return f
+
+        # 3. Return synthetic record from registry if not found in db
+        if code in DEPARTMENT_REGISTRY:
+            reg_info = DEPARTMENT_REGISTRY[code]
             return {
                 "name": reg_info["hod_name"],
                 "designation": reg_info["hod_designation"],
@@ -120,7 +131,7 @@ class FacultyIntelligenceService:
                 "department_code": code,
                 "is_hod": True,
                 "email": reg_info["hod_email"],
-                "phone": "040-29556182",
+                "phone": reg_info.get("hod_phone", "040-29556182"),
                 "profile_url": f"https://mlritm.ac.in/{code.lower()}-hod",
                 "photo_url": "https://mlritm.ac.in/sites/default/files/logo-MLRITM_0_1.png",
                 "total_experience": "Not Available",

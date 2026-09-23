@@ -34,8 +34,9 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "code": "CSE",
         "name": "Computer Science and Engineering",
         "hod_name": "Dr. K Abdul Basith",
-        "hod_designation": "Associate Professor & Head",
+        "hod_designation": "Associate Professor & Head (HOD-CSE & I/C Faculty Grievance Cell)",
         "hod_email": "hodcse@mlritm.ac.in",
+        "hod_phone": "9703242132",
         "aliases": [
             "cse", "cs", "computer science", "computer science engineering",
             "computer science and engineering", "computer science & engineering",
@@ -46,11 +47,13 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "code": "IT",
         "name": "Information Technology",
         "hod_name": "Dr. M Nagalakshmi",
-        "hod_designation": "Professor & Head",
+        "hod_designation": "Professor & Head (HOD-IT & CSIT)",
         "hod_email": "hodit@mlritm.ac.in",
+        "hod_phone": "7036089991",
+        "alternate_hods": ["Dr. M Naga Lakshmi"],
         "aliases": [
             "it", "information technology", "information tech", "infotech",
-            "it dept", "it department", "dept of it", "btech it"
+            "it dept", "it department", "dept of it", "btech it", "csit", "it & csit"
         ],
     },
     "CSE-AI-ML": {
@@ -59,6 +62,7 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "hod_name": "Dr. B Ravi Prasad",
         "hod_designation": "Dean Academics & HOD-CSE (AI & ML)",
         "hod_email": "hodcsm@mlritm.ac.in",
+        "hod_phone": "9849356732",
         "aliases": [
             "aiml", "ai ml", "ai&ml", "ai/ml", "cse aiml", "cse ai ml",
             "cse-aiml", "artificial intelligence", "machine learning",
@@ -68,9 +72,11 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
     "CSE-DATA-SCIENCE": {
         "code": "CSE-DATA-SCIENCE",
         "name": "Computer Science and Engineering (Data Science)",
-        "hod_name": "Dr. B Srikantha Setty",
-        "hod_designation": "Associate Professor & HOD",
+        "hod_name": "Dr. A Arun Kumar",
+        "hod_designation": "Professor & HOD-CSE (DS)",
         "hod_email": "hodcsd@mlritm.ac.in",
+        "hod_phone": "9182367705",
+        "alternate_hods": ["Dr. B Srikantha Setty"],
         "aliases": [
             "ds", "data science", "datascience", "cse ds", "cse data science",
             "cse-ds", "csd", "cse(ds)", "cse (data science)", "data science department"
@@ -80,19 +86,22 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
         "code": "CSE-CYBER-SECURITY",
         "name": "Computer Science and Engineering (Cyber Security)",
         "hod_name": "Dr. M Venkat Reddy",
-        "hod_designation": "Professor & Head",
-        "hod_email": "hodcyber@mlritm.ac.in",
+        "hod_designation": "Professor & Head (HOD-CSE (CS))",
+        "hod_email": "hodcsc@mlritm.ac.in",
+        "hod_phone": "9398564429",
         "aliases": [
             "cyber", "cyber security", "cybersecurity", "cse cyber", "cse cybersecurity",
-            "csc", "cyber security dept", "cyber dept", "cse-cyber"
+            "csc", "cyber security dept", "cyber dept", "cse-cyber", "cse cs"
         ],
     },
     "ECE": {
         "code": "ECE",
         "name": "Electronics and Communication Engineering",
-        "hod_name": "Dr. P Venkata Ramana",
-        "hod_designation": "Professor & Head",
+        "hod_name": "Dr. N Srinivas",
+        "hod_designation": "Professor & Head (HOD-ECE)",
         "hod_email": "hodece@mlritm.ac.in",
+        "hod_phone": "9154334563",
+        "alternate_hods": ["Dr. P Venkata Ramana"],
         "aliases": [
             "ece", "electronics", "electronics communication",
             "electronics and communication", "electronics & communication",
@@ -102,9 +111,11 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
     "EEE": {
         "code": "EEE",
         "name": "Electrical and Electronics Engineering",
-        "hod_name": "Dr. K Niranjan",
-        "hod_designation": "Professor & Head",
+        "hod_name": "Dr. A Vinod",
+        "hod_designation": "Professor & Head (HOD-EEE)",
         "hod_email": "hodeee@mlritm.ac.in",
+        "hod_phone": "8135817016",
+        "alternate_hods": ["Dr. K Niranjan"],
         "aliases": [
             "eee", "electrical", "electrical electronics",
             "electrical and electronics", "electrical & electronics",
@@ -114,9 +125,11 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
     "MECHANICAL": {
         "code": "MECHANICAL",
         "name": "Mechanical Engineering",
-        "hod_name": "Dr. G Surya Prakash Rao",
-        "hod_designation": "Professor & Head",
+        "hod_name": "Dr. U Sudhakar",
+        "hod_designation": "Professor & Head (HOD-Mechanical Engineering)",
         "hod_email": "hodmech@mlritm.ac.in",
+        "hod_phone": "9912896727",
+        "alternate_hods": ["Dr. G Surya Prakash Rao"],
         "aliases": [
             "mech", "mechanical", "mechanical engineering", "mech eng",
             "mech dept", "dept of mech", "btech mech", "me branch", "me dept"
@@ -125,9 +138,11 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
     "CIVIL": {
         "code": "CIVIL",
         "name": "Civil Engineering",
-        "hod_name": "Dr. S P Jani",
-        "hod_designation": "Professor & Head",
+        "hod_name": "Dr. K Murali",
+        "hod_designation": "Professor & Head (HOD-Civil Engineering)",
         "hod_email": "hodcivil@mlritm.ac.in",
+        "hod_phone": "8074475825",
+        "alternate_hods": ["Dr. S P Jani"],
         "aliases": [
             "civil", "civil engineering", "civil eng", "ce dept", "dept of civil", "btech civil", "ce branch"
         ],
@@ -135,9 +150,11 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
     "FRESHMAN-ENGINEERING": {
         "code": "FRESHMAN-ENGINEERING",
         "name": "Freshman Engineering",
-        "hod_name": "Dr. Lakshmi Sowjanya",
-        "hod_designation": "Professor & Head",
-        "hod_email": "hodfe@mlritm.ac.in",
+        "hod_name": "Dr. K Ashok",
+        "hod_designation": "Professor & Head (HOD-FE & I/C Student Grievance Cell)",
+        "hod_email": "hodhs@mlritm.ac.in",
+        "hod_phone": "8247516005",
+        "alternate_hods": ["Dr. Lakshmi Sowjanya"],
         "aliases": [
             "fe", "freshman", "freshman engineering", "humanities and sciences",
             "h&s", "hns", "first year", "1st year", "freshers", "fed"
@@ -146,9 +163,11 @@ DEPARTMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
     "MBA": {
         "code": "MBA",
         "name": "Masters in Business Administration",
-        "hod_name": "Dr. N Revathi",
-        "hod_designation": "Professor & Head",
+        "hod_name": "Dr. K. Veeraiah",
+        "hod_designation": "Professor & Head (HOD-MBA & Finance Officer)",
         "hod_email": "hodmba@mlritm.ac.in",
+        "hod_phone": "9885650478",
+        "alternate_hods": ["Dr. N Revathi"],
         "aliases": [
             "mba", "management", "business administration", "masters in business administration"
         ],
@@ -605,6 +624,12 @@ class QueryNormalizer:
                 for info in DEPARTMENT_REGISTRY.values():
                     if info["hod_name"].lower() in content.lower():
                         context["last_faculty_name"] = info["hod_name"]
+                        break
+                    for alt in info.get("alternate_hods", []):
+                        if alt.lower() in content.lower():
+                            context["last_faculty_name"] = alt
+                            break
+                    if "last_faculty_name" in context:
                         break
                 if "last_faculty_name" not in context:
                     # 2. Match pattern like Dr. First Last

@@ -79,30 +79,47 @@ class MLRITMSyncService:
             cols = [td.get_text(strip=True) for td in row.find_all("td")]
             if len(cols) >= 5:
                 # Cols: [S.No, Name, Designation / Responsibility, Email, Phone Number]
-                name = cols[1]
-                designation = cols[2]
-                email = cols[3]
-                phone = cols[4]
+                name = unicodedata.normalize("NFKC", cols[1]).strip()
+                designation = unicodedata.normalize("NFKC", cols[2]).strip()
+                email = unicodedata.normalize("NFKC", cols[3]).strip()
+                phone = unicodedata.normalize("NFKC", cols[4]).strip()
 
-                # Extract department if mentioned in designation (e.g. HOD-CSE, HOD-IT & CSIT)
+                # Extract clean department
                 dept = None
-                dept_match = re.search(r"\b(?:HOD|Dean|Head)[-\s:]+([A-Za-z0-9\s&()]+)", designation, re.I)
-                if dept_match:
-                    dept = dept_match.group(1).strip()
-                elif "Civil" in designation:
+                if "CSE (AI & ML)" in designation or "hodcsm" in email:
+                    dept = "Computer Science and Engineering (AI & ML)"
+                elif "CSE (DS)" in designation or "hodcsd" in email:
+                    dept = "Computer Science and Engineering (Data Science)"
+                elif "CSE (CS)" in designation or "hodcsc" in email:
+                    dept = "Computer Science and Engineering (Cyber Security)"
+                elif "CSE" in designation or "hodcse" in email:
+                    dept = "Computer Science and Engineering"
+                elif "IT" in designation or "hodit" in email:
+                    dept = "Information Technology"
+                elif "ECE" in designation or "hodece" in email:
+                    dept = "Electronics and Communication Engineering"
+                elif "EEE" in designation or "hodeee" in email:
+                    dept = "Electrical and Electronics Engineering"
+                elif "Civil" in designation or "hodcivil" in email:
                     dept = "Civil Engineering"
-                elif "Mechanical" in designation:
+                elif "Mechanical" in designation or "hodmech" in email:
                     dept = "Mechanical Engineering"
-                elif "MBA" in designation:
-                    dept = "MBA"
-                elif "ECE" in designation:
-                    dept = "ECE"
-                elif "EEE" in designation:
-                    dept = "EEE"
-                elif "CSE" in designation:
-                    dept = "CSE"
-                elif "IT" in designation:
-                    dept = "IT & CSIT"
+                elif "MBA" in designation or "hodmba" in email:
+                    dept = "Masters in Business Administration"
+                elif "FE" in designation or "hodhs" in email:
+                    dept = "Freshman Engineering"
+                elif "Dean HR" in designation:
+                    dept = "Human Resources"
+                elif "Dean Student Affairs" in designation:
+                    dept = "Student Affairs"
+                elif "Dean IIC" in designation:
+                    dept = "Institution's Innovation Council"
+                elif "Dean IQAC" in designation:
+                    dept = "Internal Quality Assurance Cell"
+                elif "Dean R&D" in designation:
+                    dept = "Research & Development"
+                elif "Training" in designation or "Placement" in designation:
+                    dept = "Training & Placement"
 
                 contacts.append({
                     "name": name,
@@ -402,6 +419,11 @@ class MLRITMSyncService:
                 existing.phone = c.get("phone") or existing.phone
                 existing.responsibility = c.get("responsibility") or existing.responsibility
                 existing.email = c.get("email") or existing.email
+                if c.get("designation"):
+                    if "HOD" in c["designation"] and "HOD" not in existing.designation:
+                        existing.designation = f"{existing.designation} ({c['designation']})"
+                    elif not existing.designation or existing.designation == "Faculty":
+                        existing.designation = c["designation"]
             else:
                 new_contact = FacultyContact(
                     name=c["name"],

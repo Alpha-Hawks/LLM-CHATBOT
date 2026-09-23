@@ -257,3 +257,76 @@ async def test_general_non_faculty_question():
     res = await process_chat_query("What is AI?")
     assert res.intent in ["GENERAL_KNOWLEDGE", "CODING_TECH"]
     assert "Artificial Intelligence" in res.answer or "AI" in res.answer
+
+
+@pytest.mark.asyncio
+async def test_authoritative_phone_directory_upgrades():
+    """
+    Verifies that faculty phone numbers and designations match
+    authoritative values from https://mlritm.ac.in/Phone_Directory.
+    """
+    # 1. CSE HOD: Dr. K Abdul Basith | 9703242132
+    res_cse = await process_chat_query("What is the phone number of CSE HOD?")
+    assert res_cse.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "9703242132" in res_cse.answer
+    assert "Abdul Basith" in res_cse.answer
+
+    # 2. IT HOD: Dr. M Naga Lakshmi | 7036089991
+    res_it = await process_chat_query("What is IT HOD phone number?")
+    assert res_it.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "7036089991" in res_it.answer
+
+    # 3. CSE Data Science HOD: Dr. A Arun Kumar | 9182367705
+    res_ds = await process_chat_query("Who is the HOD of CSE Data Science?")
+    assert res_ds.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Arun Kumar" in res_ds.answer
+    assert "9182367705" in res_ds.answer
+
+    # 4. ECE HOD: Dr. N Srinivas | 9154334563
+    res_ece = await process_chat_query("Who is the ECE HOD?")
+    assert res_ece.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Srinivas" in res_ece.answer
+    assert "9154334563" in res_ece.answer
+
+    # 5. Civil Engineering HOD: Dr. K Murali | 8074475825
+    res_civil = await process_chat_query("Who is the Civil HOD?")
+    assert res_civil.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Murali" in res_civil.answer
+    assert "8074475825" in res_civil.answer
+
+    # 6. Mechanical Engineering HOD: Dr. U Sudhakar | 9912896727
+    res_mech = await process_chat_query("Who is the Mechanical HOD?")
+    assert res_mech.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Sudhakar" in res_mech.answer
+    assert "9912896727" in res_mech.answer
+
+    # 7. EEE HOD: Dr. A Vinod | 8135817016
+    res_eee = await process_chat_query("Who is the EEE HOD?")
+    assert res_eee.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Vinod" in res_eee.answer
+    assert "8135817016" in res_eee.answer
+
+    # 8. MBA HOD: Dr. K. Veeraiah | 9885650478
+    res_mba = await process_chat_query("Who is the MBA HOD?")
+    assert res_mba.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Veeraiah" in res_mba.answer
+    assert "9885650478" in res_mba.answer
+
+    # 9. CSE-Cyber Security HOD: Dr. M Venkat Reddy | 9398564429
+    res_cyber = await process_chat_query("Who is the Cyber Security HOD?")
+    assert res_cyber.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Venkat Reddy" in res_cyber.answer
+    assert "9398564429" in res_cyber.answer
+
+    # 10. CSE-AI-ML HOD: Dr. B Ravi Prasad | 9849356732
+    res_aiml = await process_chat_query("Who is the AIML HOD?")
+    assert res_aiml.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Ravi Prasad" in res_aiml.answer
+    assert "9849356732" in res_aiml.answer
+
+    # 11. Freshman Engineering HOD: Dr. K Ashok | 8247516005
+    res_fe = await process_chat_query("Who is the Freshman Engineering HOD?")
+    assert res_fe.intent in ["FACULTY_HOD", "PHONE_DIRECTORY"]
+    assert "Ashok" in res_fe.answer
+    assert "8247516005" in res_fe.answer
+

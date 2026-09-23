@@ -10,7 +10,7 @@
     {
       "name": "Dr. P Sridhar",
       "designation": "Director",
-      "department": null,
+      "department": "Administration",
       "responsibility": "Director",
       "email": "director@mlritm.ac.in",
       "phone": "040-29556182",
@@ -19,7 +19,7 @@
     {
       "name": "Dr. R Murali Prasad",
       "designation": "Principal",
-      "department": null,
+      "department": "Administration",
       "responsibility": "Principal",
       "email": "principal@mlritm.ac.in",
       "phone": "040-29556182",
@@ -28,7 +28,7 @@
     {
       "name": "Mr. Bhushan Kundeti",
       "designation": "Controller of Examinations",
-      "department": null,
+      "department": "Examination Branch",
       "responsibility": "Controller of Examinations",
       "email": "coe@mlritm.ac.in",
       "phone": "9985795785",
@@ -37,7 +37,7 @@
     {
       "name": "Dr. Amarendra Reddy Panyala",
       "designation": "Additional Controller of Examinations-1",
-      "department": null,
+      "department": "Examination Branch",
       "responsibility": "Additional Controller of Examinations-1",
       "email": "ace1@mlritm.ac.in",
       "phone": "9985794225",
@@ -46,7 +46,7 @@
     {
       "name": "Mr. K Nagaraju",
       "designation": "Additional Controller of Examinations-2",
-      "department": null,
+      "department": "Examination Branch",
       "responsibility": "Additional Controller of Examinations-2",
       "email": "ace2@mlritm.ac.in",
       "phone": "7989100475",
@@ -55,7 +55,7 @@
     {
       "name": "Dr. I Adum Babu",
       "designation": "Dean HR",
-      "department": "HR",
+      "department": "Human Resources",
       "responsibility": "Dean HR",
       "email": "deanhr@mlritm.ac.in",
       "phone": "9440456864",
@@ -64,7 +64,7 @@
     {
       "name": "Dr. B Ravi Prasad",
       "designation": "Dean Academics & HOD-CSE (AI & ML)",
-      "department": "Academics & HOD",
+      "department": "Computer Science and Engineering (AI & ML)",
       "responsibility": "Dean Academics & HOD-CSE (AI & ML)",
       "email": "hodcsm@mlritm.ac.in",
       "phone": "9849356732",
@@ -82,7 +82,7 @@
     {
       "name": "Dr. S P Jani",
       "designation": "Dean IIC",
-      "department": "IIC",
+      "department": "Institution's Innovation Council",
       "responsibility": "Dean IIC",
       "email": "deaniic@mlritm.ac.in",
       "phone": "9488545500",
@@ -91,7 +91,7 @@
     {
       "name": "Dr. K Chaithanya",
       "designation": "Dean IQAC",
-      "department": "IQAC",
+      "department": "Internal Quality Assurance Cell",
       "responsibility": "Dean IQAC",
       "email": "deaniqac@mlritm.ac.in",
       "phone": "9550035671",
@@ -100,7 +100,7 @@
     {
       "name": "Dr. G Narsinga Rao",
       "designation": "Dean R&D",
-      "department": "R&D",
+      "department": "Research & Development",
       "responsibility": "Dean R&D",
       "email": "deanrnd@mlritm.ac.in",
       "phone": "8008092417",
@@ -109,7 +109,7 @@
     {
       "name": "Ms. Ila Chandana Kumari",
       "designation": "Training Head & Corporate Relations",
-      "department": "& Corporate Relations",
+      "department": "Training & Placement",
       "responsibility": "Training Head & Corporate Relations",
       "email": "traininghead@mlritm.ac.in",
       "phone": "9985829666",
@@ -118,7 +118,7 @@
     {
       "name": "Mr. B N Srinivas",
       "designation": "Placement Officer",
-      "department": null,
+      "department": "Training & Placement",
       "responsibility": "Placement Officer",
       "email": "tpo@mlritm.ac.in",
       "phone": "9849872510",
@@ -127,7 +127,7 @@
     {
       "name": "Dr. K Sravanthi",
       "designation": "In charge clubs and Internal Complaints Committee",
-      "department": null,
+      "department": "Student Clubs & ICC",
       "responsibility": "In charge clubs and Internal Complaints Committee",
       "email": "icc@mlritm.ac.in",
       "phone": "9642500717",
@@ -136,7 +136,7 @@
     {
       "name": "Ms. Ch Hemalatha",
       "designation": "Vigilance Officer",
-      "department": null,
+      "department": "Administration",
       "responsibility": "Vigilance Officer",
       "email": "hemalathach73@gmail.com",
       "phone": "9441117899",
@@ -144,18 +144,18 @@
     },
     {
       "name": "Dr. K Ashok",
-      "designation": "HOD-FE & \u00a0I/C Student Grievance Cell",
-      "department": "FE & \u00a0I",
-      "responsibility": "HOD-FE & \u00a0I/C Student Grievance Cell",
+      "designation": "HOD-FE & I/C Student Grievance Cell",
+      "department": "Freshman Engineering",
+      "responsibility": "HOD-FE & I/C Student Grievance Cell",
       "email": "hodhs@mlritm.ac.in",
       "phone": "8247516005",
       "source_url": "https://www.mlritm.ac.in/Phone_Directory"
     },
     {
       "name": "Dr. K Abdul Basith",
-      "designation": "HOD-CSE & \u00a0I/C Faculty Grievance Cell",
-      "department": "CSE & \u00a0I",
-      "responsibility": "HOD-CSE & \u00a0I/C Faculty Grievance Cell",
+      "designation": "HOD-CSE & I/C Faculty Grievance Cell",
+      "department": "Computer Science and Engineering",
+      "responsibility": "HOD-CSE & I/C Faculty Grievance Cell",
       "email": "hodcse@mlritm.ac.in",
       "phone": "9703242132",
       "source_url": "https://www.mlritm.ac.in/Phone_Directory"
@@ -163,7 +163,7 @@
     {
       "name": "Dr. A Arun Kumar",
       "designation": "HOD-CSE (DS)",
-      "department": "CSE (DS)",
+      "department": "Computer Science and Engineering (Data Science)",
       "responsibility": "HOD-CSE (DS)",
       "email": "hodcsd@mlritm.ac.in",
       "phone": "9182367705",
@@ -172,7 +172,7 @@
     {
       "name": "Dr. M Venkat Reddy",
       "designation": "HOD-CSE (CS)",
-      "department": "CSE (CS)",
+      "department": "Computer Science and Engineering (Cyber Security)",
       "responsibility": "HOD-CSE (CS)",
       "email": "hodcsc@mlritm.ac.in",
       "phone": "9398564429",
@@ -181,7 +181,7 @@
     {
       "name": "Dr. M Naga Lakshmi",
       "designation": "HOD-IT & CSIT",
-      "department": "IT & CSIT",
+      "department": "Information Technology",
       "responsibility": "HOD-IT & CSIT",
       "email": "hodit@mlritm.ac.in",
       "phone": "7036089991",
@@ -190,7 +190,7 @@
     {
       "name": "Dr. N Srinivas",
       "designation": "HOD-ECE",
-      "department": "ECE",
+      "department": "Electronics and Communication Engineering",
       "responsibility": "HOD-ECE",
       "email": "hodece@mlritm.ac.in",
       "phone": "9154334563",
@@ -199,7 +199,7 @@
     {
       "name": "Dr. A Vinod",
       "designation": "HOD-EEE",
-      "department": "EEE",
+      "department": "Electrical and Electronics Engineering",
       "responsibility": "HOD-EEE",
       "email": "hodeee@mlritm.ac.in",
       "phone": "8135817016",
@@ -226,7 +226,7 @@
     {
       "name": "Dr. K. Veeraiah",
       "designation": "HOD-MBA & Finance Officer",
-      "department": "MBA & Finance Officer",
+      "department": "Masters in Business Administration",
       "responsibility": "HOD-MBA & Finance Officer",
       "email": "hodmba@mlritm.ac.in",
       "phone": "9885650478",
@@ -235,7 +235,7 @@
     {
       "name": "Dr. B Koteswara Rao",
       "designation": "I/C Alumni & Higher Education",
-      "department": null,
+      "department": "Alumni & Higher Education",
       "responsibility": "I/C Alumni & Higher Education",
       "email": "ksrao123@mlritm.ac.in",
       "phone": "9700941151",
@@ -244,7 +244,7 @@
     {
       "name": "Mr. M Venkatesh",
       "designation": "System Administrator & Online Services",
-      "department": null,
+      "department": "IT Support & Online Services",
       "responsibility": "System Administrator & Online Services",
       "email": "medaboina.venkatesh@mlritm.ac.in",
       "phone": "9000064443",
@@ -253,7 +253,7 @@
     {
       "name": "Mr. K Narendar",
       "designation": "Administrative Officer",
-      "department": null,
+      "department": "Administration",
       "responsibility": "Administrative Officer",
       "email": "ao@mlritm.ac.in",
       "phone": "9866755144",
@@ -262,7 +262,7 @@
     {
       "name": "Mr. B Siva Bala Prasad",
       "designation": "Scholarships",
-      "department": null,
+      "department": "Scholarships Section",
       "responsibility": "Scholarships",
       "email": "scholarship@mlritm.ac.in",
       "phone": "9866383999",
@@ -271,7 +271,7 @@
     {
       "name": "Mr. M Vara Prasad",
       "designation": "Librarian",
-      "department": null,
+      "department": "Library",
       "responsibility": "Librarian",
       "email": "librarian@mlritm.ac.in",
       "phone": "9573398916",
@@ -280,7 +280,7 @@
     {
       "name": "Dr. K Veera Raghavulu",
       "designation": "Transport In Charge",
-      "department": null,
+      "department": "Transport",
       "responsibility": "Transport In Charge",
       "email": "transport@mlritm.ac.in",
       "phone": "9640905221",
@@ -289,7 +289,7 @@
     {
       "name": "Mr. B Shiva Shankar",
       "designation": "Electrical Maintenance In Charge",
-      "department": null,
+      "department": "Maintenance",
       "responsibility": "Electrical Maintenance In Charge",
       "email": "electricalmaintenance@mlritm.ac.in",
       "phone": "7013750532",
