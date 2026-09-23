@@ -4,7 +4,7 @@ Loads environment variables using Pydantic Settings with secure defaults.
 """
 
 import os
-from typing import List
+from typing import List, Any
 try:
     from pydantic_settings import BaseSettings, SettingsConfigDict
 except ImportError:
@@ -100,6 +100,16 @@ def _sanitize_env():
     for k, default_val in _DEFAULT_FALLBACK_ENV.items():
         if k in os.environ and not os.environ[k].strip():
             os.environ[k] = default_val
+
+    # Sanitize ALLOWED_ORIGINS so empty strings or non-JSON lists never crash pydantic-settings
+    if "ALLOWED_ORIGINS" in os.environ:
+        raw_val = os.environ["ALLOWED_ORIGINS"].strip()
+        if not raw_val:
+            os.environ.pop("ALLOWED_ORIGINS", None)
+        elif not raw_val.startswith("["):
+            import json as _json
+            parts = [p.strip() for p in raw_val.split(",") if p.strip()]
+            os.environ["ALLOWED_ORIGINS"] = _json.dumps(parts)
 
 
 _load_anvaya_config_file()
@@ -227,39 +237,46 @@ class Settings(BaseSettings):
     # Database Settings
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./academic_chatbot.db")
     
-    # Security & CORS — read from env var (JSON array) so Render/Netlify URLs are included
-    ALLOWED_ORIGINS: List[str] = []
+    # Security & CORS — read from env var (JSON array or comma-separated)
+    ALLOWED_ORIGINS: Any = []
 
     def __init__(self, **data):
         super().__init__(**data)
         import json as _json
         raw = os.getenv("ALLOWED_ORIGINS", "")
-        if raw.strip():
-            try:
-                parsed = _json.loads(raw)
-                if isinstance(parsed, list):
-                    object.__setattr__(self, "ALLOWED_ORIGINS", parsed)
-            except Exception:
-                pass
-        if not self.ALLOWED_ORIGINS:
-            object.__setattr__(self, "ALLOWED_ORIGINS", [
+        origins_list = []
+        if isinstance(raw, str) and raw.strip():
+            raw_str = raw.strip()
+            if raw_str.startswith("["):
+                try:
+                    parsed = _json.loads(raw_str)
+                    if isinstance(parsed, list):
+                        origins_list = [str(x).strip() for x in parsed if str(x).strip()]
+                except Exception:
+                    pass
+            else:
+                origins_list = [p.strip() for p in raw_str.split(",") if p.strip()]
+        elif isinstance(self.ALLOWED_ORIGINS, list):
+            origins_list = [str(x).strip() for x in self.ALLOWED_ORIGINS if str(x).strip()]
+
+        if not origins_list:
+            origins_list = [
                 "https://aichatbotmlritm.netlify.app",
                 "https://anvaya.mlritm.ac.in",
                 "http://localhost:3000",
                 "http://localhost:8000",
                 "http://127.0.0.1:8000",
-            ])
+            ]
         # Automatically permit Vercel domains if deployed on Vercel
-        origins = list(self.ALLOWED_ORIGINS)
         vercel_url = os.getenv("VERCEL_URL")
-        if vercel_url and f"https://{vercel_url}" not in origins:
-            origins.append(f"https://{vercel_url}")
+        if vercel_url and f"https://{vercel_url}" not in origins_list:
+            origins_list.append(f"https://{vercel_url}")
         vercel_prod = os.getenv("VERCEL_PROJECT_PRODUCTION_URL")
-        if vercel_prod and f"https://{vercel_prod}" not in origins:
-            origins.append(f"https://{vercel_prod}")
-        if "https://mlritm-student-chatbot.vercel.app" not in origins:
-            origins.append("https://mlritm-student-chatbot.vercel.app")
-        object.__setattr__(self, "ALLOWED_ORIGINS", origins)
+        if vercel_prod and f"https://{vercel_prod}" not in origins_list:
+            origins_list.append(f"https://{vercel_prod}")
+        if "https://mlritm-student-chatbot.vercel.app" not in origins_list:
+            origins_list.append("https://mlritm-student-chatbot.vercel.app")
+        object.__setattr__(self, "ALLOWED_ORIGINS", origins_list)
 
     
     # Redirect plain-HTTP requests to HTTPS (health probes excepted). Turn on wherever the assistant
