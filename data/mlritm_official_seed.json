@@ -1,0 +1,2497 @@
+{
+  "metadata": {
+    "source": "https://www.mlritm.ac.in",
+    "generated_at": "2026-09-22T21:55:00Z",
+    "total_contacts": 32,
+    "total_events": 60,
+    "total_media": 202
+  },
+  "contacts": [
+    {
+      "name": "Dr. P Sridhar",
+      "designation": "Director",
+      "department": null,
+      "responsibility": "Director",
+      "email": "director@mlritm.ac.in",
+      "phone": "040-29556182",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. R Murali Prasad",
+      "designation": "Principal",
+      "department": null,
+      "responsibility": "Principal",
+      "email": "principal@mlritm.ac.in",
+      "phone": "040-29556182",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. Bhushan Kundeti",
+      "designation": "Controller of Examinations",
+      "department": null,
+      "responsibility": "Controller of Examinations",
+      "email": "coe@mlritm.ac.in",
+      "phone": "9985795785",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. Amarendra Reddy Panyala",
+      "designation": "Additional Controller of Examinations-1",
+      "department": null,
+      "responsibility": "Additional Controller of Examinations-1",
+      "email": "ace1@mlritm.ac.in",
+      "phone": "9985794225",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. K Nagaraju",
+      "designation": "Additional Controller of Examinations-2",
+      "department": null,
+      "responsibility": "Additional Controller of Examinations-2",
+      "email": "ace2@mlritm.ac.in",
+      "phone": "7989100475",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. I Adum Babu",
+      "designation": "Dean HR",
+      "department": "HR",
+      "responsibility": "Dean HR",
+      "email": "deanhr@mlritm.ac.in",
+      "phone": "9440456864",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. B Ravi Prasad",
+      "designation": "Dean Academics & HOD-CSE (AI & ML)",
+      "department": "Academics & HOD",
+      "responsibility": "Dean Academics & HOD-CSE (AI & ML)",
+      "email": "hodcsm@mlritm.ac.in",
+      "phone": "9849356732",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. Y Appa Rao",
+      "designation": "Dean Student Affairs",
+      "department": "Student Affairs",
+      "responsibility": "Dean Student Affairs",
+      "email": "deanstudentaffairs@mlritm.ac.in",
+      "phone": "9492756360",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. S P Jani",
+      "designation": "Dean IIC",
+      "department": "IIC",
+      "responsibility": "Dean IIC",
+      "email": "deaniic@mlritm.ac.in",
+      "phone": "9488545500",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. K Chaithanya",
+      "designation": "Dean IQAC",
+      "department": "IQAC",
+      "responsibility": "Dean IQAC",
+      "email": "deaniqac@mlritm.ac.in",
+      "phone": "9550035671",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. G Narsinga Rao",
+      "designation": "Dean R&D",
+      "department": "R&D",
+      "responsibility": "Dean R&D",
+      "email": "deanrnd@mlritm.ac.in",
+      "phone": "8008092417",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Ms. Ila Chandana Kumari",
+      "designation": "Training Head & Corporate Relations",
+      "department": "& Corporate Relations",
+      "responsibility": "Training Head & Corporate Relations",
+      "email": "traininghead@mlritm.ac.in",
+      "phone": "9985829666",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. B N Srinivas",
+      "designation": "Placement Officer",
+      "department": null,
+      "responsibility": "Placement Officer",
+      "email": "tpo@mlritm.ac.in",
+      "phone": "9849872510",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. K Sravanthi",
+      "designation": "In charge clubs and Internal Complaints Committee",
+      "department": null,
+      "responsibility": "In charge clubs and Internal Complaints Committee",
+      "email": "icc@mlritm.ac.in",
+      "phone": "9642500717",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Ms. Ch Hemalatha",
+      "designation": "Vigilance Officer",
+      "department": null,
+      "responsibility": "Vigilance Officer",
+      "email": "hemalathach73@gmail.com",
+      "phone": "9441117899",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. K Ashok",
+      "designation": "HOD-FE & \u00a0I/C Student Grievance Cell",
+      "department": "FE & \u00a0I",
+      "responsibility": "HOD-FE & \u00a0I/C Student Grievance Cell",
+      "email": "hodhs@mlritm.ac.in",
+      "phone": "8247516005",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. K Abdul Basith",
+      "designation": "HOD-CSE & \u00a0I/C Faculty Grievance Cell",
+      "department": "CSE & \u00a0I",
+      "responsibility": "HOD-CSE & \u00a0I/C Faculty Grievance Cell",
+      "email": "hodcse@mlritm.ac.in",
+      "phone": "9703242132",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. A Arun Kumar",
+      "designation": "HOD-CSE (DS)",
+      "department": "CSE (DS)",
+      "responsibility": "HOD-CSE (DS)",
+      "email": "hodcsd@mlritm.ac.in",
+      "phone": "9182367705",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. M Venkat Reddy",
+      "designation": "HOD-CSE (CS)",
+      "department": "CSE (CS)",
+      "responsibility": "HOD-CSE (CS)",
+      "email": "hodcsc@mlritm.ac.in",
+      "phone": "9398564429",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. M Naga Lakshmi",
+      "designation": "HOD-IT & CSIT",
+      "department": "IT & CSIT",
+      "responsibility": "HOD-IT & CSIT",
+      "email": "hodit@mlritm.ac.in",
+      "phone": "7036089991",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. N Srinivas",
+      "designation": "HOD-ECE",
+      "department": "ECE",
+      "responsibility": "HOD-ECE",
+      "email": "hodece@mlritm.ac.in",
+      "phone": "9154334563",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. A Vinod",
+      "designation": "HOD-EEE",
+      "department": "EEE",
+      "responsibility": "HOD-EEE",
+      "email": "hodeee@mlritm.ac.in",
+      "phone": "8135817016",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. K Murali",
+      "designation": "HOD-Civil Engineering",
+      "department": "Civil Engineering",
+      "responsibility": "HOD-Civil Engineering",
+      "email": "hodcivil@mlritm.ac.in",
+      "phone": "8074475825",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. U Sudhakar",
+      "designation": "HOD-Mechanical Engineering",
+      "department": "Mechanical Engineering",
+      "responsibility": "HOD-Mechanical Engineering",
+      "email": "hodmech@mlritm.ac.in",
+      "phone": "9912896727",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. K. Veeraiah",
+      "designation": "HOD-MBA & Finance Officer",
+      "department": "MBA & Finance Officer",
+      "responsibility": "HOD-MBA & Finance Officer",
+      "email": "hodmba@mlritm.ac.in",
+      "phone": "9885650478",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. B Koteswara Rao",
+      "designation": "I/C Alumni & Higher Education",
+      "department": null,
+      "responsibility": "I/C Alumni & Higher Education",
+      "email": "ksrao123@mlritm.ac.in",
+      "phone": "9700941151",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. M Venkatesh",
+      "designation": "System Administrator & Online Services",
+      "department": null,
+      "responsibility": "System Administrator & Online Services",
+      "email": "medaboina.venkatesh@mlritm.ac.in",
+      "phone": "9000064443",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. K Narendar",
+      "designation": "Administrative Officer",
+      "department": null,
+      "responsibility": "Administrative Officer",
+      "email": "ao@mlritm.ac.in",
+      "phone": "9866755144",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. B Siva Bala Prasad",
+      "designation": "Scholarships",
+      "department": null,
+      "responsibility": "Scholarships",
+      "email": "scholarship@mlritm.ac.in",
+      "phone": "9866383999",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. M Vara Prasad",
+      "designation": "Librarian",
+      "department": null,
+      "responsibility": "Librarian",
+      "email": "librarian@mlritm.ac.in",
+      "phone": "9573398916",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Dr. K Veera Raghavulu",
+      "designation": "Transport In Charge",
+      "department": null,
+      "responsibility": "Transport In Charge",
+      "email": "transport@mlritm.ac.in",
+      "phone": "9640905221",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    },
+    {
+      "name": "Mr. B Shiva Shankar",
+      "designation": "Electrical Maintenance In Charge",
+      "department": null,
+      "responsibility": "Electrical Maintenance In Charge",
+      "email": "electricalmaintenance@mlritm.ac.in",
+      "phone": "7013750532",
+      "source_url": "https://www.mlritm.ac.in/Phone_Directory"
+    }
+  ],
+  "events": [
+    {
+      "title": "India Japan Innovation",
+      "slug": "india-japan-innovation-2026-9",
+      "event_date": "2026-09-24",
+      "date_display": "24 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: India Japan Innovation. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "UPCOMING",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/india-japan-innovation.jpeg?itok=E_6UA-7l",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Gate-2027",
+      "slug": "gate-2027-2026-9",
+      "event_date": "2026-09-28",
+      "date_display": "28 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Gate-2027. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "UPCOMING",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/gate-2027.jpeg?itok=-HP5eRuI",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "On-Week-Work-Shop-Arvr",
+      "slug": "on-week-work-shop-arvr-2026-9",
+      "event_date": "2026-09-29",
+      "date_display": "29 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: On-Week-Work-Shop-Arvr. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "UPCOMING",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/on-week-work-shop-arvr.jpeg?itok=6eFmyhHD",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Seminor-On-Nation-First",
+      "slug": "seminor-on-nation-first-2026-9",
+      "event_date": "2026-09-23",
+      "date_display": "23 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Seminor-On-Nation-First. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "UPCOMING",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/seminor-on-nation-first.jpeg?itok=9Jabndpo",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Green Ganesha",
+      "slug": "green-ganesha-2026-9",
+      "event_date": "2026-09-10",
+      "date_display": "10 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Green Ganesha. Organized at MLRITM campus.",
+      "category": "community_outreach",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/green-ganesha.jpeg?itok=erlJgRdr",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Passport Communication",
+      "slug": "passport-communication-2026-9",
+      "event_date": "2026-09-25",
+      "date_display": "25 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Passport Communication. Organized at MLRITM campus.",
+      "category": "sports",
+      "status": "UPCOMING",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/passport-communication-mlritm.jpeg?itok=sqXDRTMI",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "India-Japan Hackathon",
+      "slug": "india-japan-hackathon-2026-9",
+      "event_date": "2026-09-24",
+      "date_display": "24 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: India-Japan Hackathon. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "UPCOMING",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/india-japan.jpeg?itok=O7bCjzsj",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Donation Camp Mlritm",
+      "slug": "donation-camp-mlritm-2026-9",
+      "event_date": "2026-09-12",
+      "date_display": "12 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Donation Camp Mlritm. Organized at MLRITM campus.",
+      "category": "community_outreach",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/donation-camp-mlritm.jpeg?itok=wQ_KWW1B",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Cse-Ai-Program",
+      "slug": "cse-ai-program-2026-9",
+      "event_date": "2026-09-15",
+      "date_display": "15 Sep 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Cse-Ai-Program. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-09/cse-ai-program.jpeg?itok=ZOqGBlrC",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "New-Voter-Registration-Drive",
+      "slug": "new-voter-registration-drive-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: New-Voter-Registration-Drive. Organized at MLRITM campus.",
+      "category": "community_outreach",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/new-voter-registration-drive.jpeg?itok=mp24qgIX",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Khalega-Bharat-Jeetega-Bharat",
+      "slug": "khalega-bharat-jeetega-bharat-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Khalega-Bharat-Jeetega-Bharat. Organized at MLRITM campus.",
+      "category": "sports",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/khalega-bharat-jeetega-bharat.jpeg?itok=HToKaxmd",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Pathways-To-Highereducation",
+      "slug": "pathways-to-highereducation-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Pathways-To-Highereducation. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/pathways-to-highereducation.jpeg?itok=OPbDDtQc",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Civil Industrial Visit",
+      "slug": "civil-industrial-visit-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Civil Industrial Visit. Organized at MLRITM campus.",
+      "category": "industrial_visit",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/aparna-synergy_0.jpeg?itok=p_c2iR-V",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Engineer Your Feature",
+      "slug": "engineer-your-feature-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Engineer Your Feature. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/engineer-your-feature.jpeg?itok=F7wdPIhR",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Ansys Electronics Event",
+      "slug": "ansys-electronics-event-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Ansys Electronics Event. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/ansys-electronics-workshop.jpeg?itok=h9SuzCSK",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Python",
+      "slug": "python-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Python. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/1000576649.jpg?itok=ZaBVopfw",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Zumba Event",
+      "slug": "zumba-event-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Zumba Event. Organized at MLRITM campus.",
+      "category": "sports",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/zumpa%20event.jpeg?itok=Pb_NXVaK",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Youthday",
+      "slug": "youthday-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Youthday. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/youth_day_mlritm.jpeg?itok=iwM_dJMt",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Universal",
+      "slug": "universal-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Universal. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/1000574365.jpg?itok=LcQN_yGk",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Road-Safe",
+      "slug": "road-safe-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Road-Safe. Organized at MLRITM campus.",
+      "category": "community_outreach",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/road-sefety.jpeg?itok=2P9OJCkC",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Mlr-1",
+      "slug": "mlr-1-2026-8",
+      "event_date": "2026-08-15",
+      "date_display": "15 Aug 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Mlr-1. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-08/mlr-1.jpeg?itok=dtQEvSTk",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Iks Mlritm",
+      "slug": "iks-mlritm-2026-6",
+      "event_date": "2026-06-15",
+      "date_display": "15 Jun 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Iks Mlritm. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-06/iks-mlritm.jpeg?itok=e1UTOntT",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Mayank Woo U_572X334",
+      "slug": "mayank-woo-u-572x334-2026-5",
+      "event_date": "2026-05-15",
+      "date_display": "15 May 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Mayank Woo U_572X334. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-05/mayank-woo-u_572x334.png?itok=g_gixBG-",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Cyber Crime Awareness Workshop",
+      "slug": "cyber-crime-awareness-workshop-2026-5",
+      "event_date": "2026-05-15",
+      "date_display": "15 May 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Cyber Crime Awareness Workshop. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-05/Cyber-crime-awarness-workshop.jpeg?itok=kCaBpimY",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Nss Is Organizing Mlritm Myfirst Vote",
+      "slug": "nss-is-organizing-mlritm-myfirst-vote-2026-5",
+      "event_date": "2026-05-15",
+      "date_display": "15 May 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Nss Is Organizing Mlritm Myfirst Vote. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-05/nss-my-first-vote.jpeg?itok=CG11W9ca",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Ultra-Tech-Mlritm",
+      "slug": "ultra-tech-mlritm-2026-4",
+      "event_date": "2026-04-15",
+      "date_display": "15 Apr 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Ultra-Tech-Mlritm. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-04/ultra-tech-mlritm.jpeg?itok=WKcgiO2P",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Inspiring-Startup-Stories",
+      "slug": "inspiring-startup-stories-2026-4",
+      "event_date": "2026-04-15",
+      "date_display": "15 Apr 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Inspiring-Startup-Stories. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-04/inspiring-startup-stories.jpeg?itok=mUnMfZxq",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Annual Day",
+      "slug": "annual-day-2026-3",
+      "event_date": "2026-03-15",
+      "date_display": "15 Mar 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Annual Day. Organized at MLRITM campus.",
+      "category": "fest",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-03/Annual%20Day%202026.jpg.jpeg?itok=wDqSjU4d",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Valarous Main Poster.",
+      "slug": "valarous-main-poster-2026-3",
+      "event_date": "2026-03-15",
+      "date_display": "15 Mar 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Valarous Main Poster.. Organized at MLRITM campus.",
+      "category": "fest",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-03/Valarous%20Main%20Poster.jpg.jpeg?itok=NI2Ok60W",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Valarous Pace 2026",
+      "slug": "valarous-pace-2026-2026-3",
+      "event_date": "2026-03-15",
+      "date_display": "15 Mar 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Valarous Pace 2026. Organized at MLRITM campus.",
+      "category": "fest",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-03/VALAROUS%20PACE%202026.jpg.jpeg?itok=Haz_lnd1",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Autoexpo 2026",
+      "slug": "autoexpo-2026-2026-3",
+      "event_date": "2026-03-15",
+      "date_display": "15 Mar 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Autoexpo 2026. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-03/AUTOEXPO%202026.jpg.jpeg?itok=fIiKjHtN",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Parents And Teacher Meeting",
+      "slug": "parents-and-teacher-meeting-2026-3",
+      "event_date": "2026-03-15",
+      "date_display": "15 Mar 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Parents And Teacher Meeting. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-03/parent-teacher-meet_2.jpeg?itok=up4_LtJJ",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Sports Ranakrida - 2026",
+      "slug": "sports-ranakrida-2026-2026-3",
+      "event_date": "2026-03-15",
+      "date_display": "15 Mar 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Sports Ranakrida - 2026. Organized at MLRITM campus.",
+      "category": "sports",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-03/RANAKRIDA%202026.jpg?itok=nshYVwo9",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Lisp & Prolog Fdp 2026",
+      "slug": "lisp-prolog-fdp-2026-2026-3",
+      "event_date": "2026-03-15",
+      "date_display": "15 Mar 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Lisp & Prolog Fdp 2026. Organized at MLRITM campus.",
+      "category": "academic_seminar",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-03/LISP%20%26%20PROLOG%20FDP%202026.jpg.jpeg?itok=8o1txsW5",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Japan University Students",
+      "slug": "japan-university-students-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Japan University Students. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/japan%20university%20students.jpeg?itok=-H9J9Bf9",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Leadership-Without",
+      "slug": "leadership-without-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Leadership-Without. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/leadership-without.jpeg?itok=zqZs0FzX",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Mass Drug Mda",
+      "slug": "mass-drug-mda-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Mass Drug Mda. Organized at MLRITM campus.",
+      "category": "community_outreach",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/mass_drug_mda.jpeg?itok=FMedZjB8",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Nagarjuna-Sagar-Hydel-Power-Plant",
+      "slug": "nagarjuna-sagar-hydel-power-plant-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Nagarjuna-Sagar-Hydel-Power-Plant. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/nagarjuna-sagar-hydel-power-plant.jpeg?itok=UFcghVyq",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Drug Camp",
+      "slug": "drug-camp-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Drug Camp. Organized at MLRITM campus.",
+      "category": "community_outreach",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/drug%20camp.jpeg?itok=wnAbsne0",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Me & Mba Workshop 2026",
+      "slug": "me-mba-workshop-2026-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Me & Mba Workshop 2026. Organized at MLRITM campus.",
+      "category": "technical_workshop",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/ME%20%26%20MBA%20WORKSHOP%202026.jpg?itok=STIQVf1T",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Ece And Eee One Week Sttp",
+      "slug": "ece-and-eee-one-week-sttp-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Ece And Eee One Week Sttp. Organized at MLRITM campus.",
+      "category": "academic_seminar",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/one%20week%20sttp%20ece%20and%20eee.jpeg?itok=bYZ1ud3f",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Japan Event 2026",
+      "slug": "japan-event-2026-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Japan Event 2026. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/JAPAN%20EVENT%202026.jpg.jpeg?itok=FLD56oKQ",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "One-Week-Sttp",
+      "slug": "one-week-sttp-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: One-Week-Sttp. Organized at MLRITM campus.",
+      "category": "academic_seminar",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/sttp.jpeg?itok=spLRNhU1",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Technical Talk Civil",
+      "slug": "technical-talk-civil-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Technical Talk Civil. Organized at MLRITM campus.",
+      "category": "academic_seminar",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/Technical%20Talk%20CIVIL%202026.jpg.jpeg?itok=MDDN3AV1",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Auto",
+      "slug": "auto-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Auto. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/auto.jpeg?itok=FTbv273d",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Fdp-Fe-Rp",
+      "slug": "fdp-fe-rp-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Fdp-Fe-Rp. Organized at MLRITM campus.",
+      "category": "academic_seminar",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/FDP-FE-RP.jpeg?itok=GrPuG9Tr",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "S-Gfg-C",
+      "slug": "s-gfg-c-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: S-Gfg-C. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/S-GFG-C.jpeg?itok=QSePlAjp",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Sangram-2026",
+      "slug": "sangram-2026-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Sangram-2026. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/SANGRAM-2026.jpeg?itok=iW2eqaXw",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Bsc-Ipf",
+      "slug": "bsc-ipf-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Bsc-Ipf. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/bsc-ipf.jpeg?itok=WdGN55FW",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Jal Seva Adhyayan From 4Th February To 14Th February 2026",
+      "slug": "jal-seva-adhyayan-from-4th-february-to-14th-february-2026-2026-2",
+      "event_date": "2026-02-04",
+      "date_display": "4 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Jal Seva Adhyayan From 4Th February To 14Th February 2026. Organized at MLRITM campus.",
+      "category": "community_outreach",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/jal-jivan.jpeg?itok=Z7Na_x2-",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Awareness Program On Cervical Cancer",
+      "slug": "awareness-program-on-cervical-cancer-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Awareness Program On Cervical Cancer. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/awareness.jpeg?itok=fQmEqi2R",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Medical Camp At Mlritm & Mlrip",
+      "slug": "medical-camp-at-mlritm-mlrip-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Medical Camp At Mlritm & Mlrip. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/medical.jpeg?itok=watjWh0V",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Ipr",
+      "slug": "ipr-2026-2",
+      "event_date": "2026-02-15",
+      "date_display": "15 Feb 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Ipr. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-02/ipr.jpeg?itok=6uuowsJR",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Genai Force",
+      "slug": "genai-force-2026-1",
+      "event_date": "2026-01-15",
+      "date_display": "15 Jan 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Genai Force. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-01/genai.jpeg?itok=fdOK7BDl",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Ieee Hakathan",
+      "slug": "ieee-hakathan-2026-1",
+      "event_date": "2026-01-15",
+      "date_display": "15 Jan 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Ieee Hakathan. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-01/RANDD%20D.jpeg?itok=NTvXlvGj",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Jee Aspirants",
+      "slug": "jee-aspirants-2026-1",
+      "event_date": "2026-01-15",
+      "date_display": "15 Jan 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Jee Aspirants. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-01/JEE-ASPIRANTS.jpeg?itok=gW_-z3ZH",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Air India",
+      "slug": "air-india-2026-1",
+      "event_date": "2026-01-15",
+      "date_display": "15 Jan 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Air India. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-01/INDIA-AIR.jpeg?itok=nPnuWL4n",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Dv Ramana",
+      "slug": "dv-ramana-2026-1",
+      "event_date": "2026-01-15",
+      "date_display": "15 Jan 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Dv Ramana. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-01/DV-RAMANA_0.jpeg?itok=sIFx5wUI",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Java",
+      "slug": "java-2026-1",
+      "event_date": "2026-01-15",
+      "date_display": "15 Jan 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Java. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-01/JAVA-FULL_1.jpeg?itok=-7zXxWju",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    },
+    {
+      "title": "Republic Day",
+      "slug": "republic-day-2026-1",
+      "event_date": "2026-01-15",
+      "date_display": "15 Jan 2026",
+      "venue": "MLRITM Campus, Dundigal, Hyderabad",
+      "organizer": "MLRITM Student Activities Council",
+      "description": "Official college event: Republic Day. Organized at MLRITM campus.",
+      "category": "campus_activity",
+      "status": "PAST",
+      "poster_url": "https://www.mlritm.ac.in/sites/default/files/styles/max_325x325/public/2026-01/26-REPLUBLIC_0.jpeg?itok=XQ5I4vYy",
+      "source_url": "https://www.mlritm.ac.in/upcoming-and-ongoing-events"
+    }
+  ],
+  "media": [
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-1.jpeg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-2.jpeg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-9.jpeg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-3.jpeg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-4.jpeg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-5.jpeg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-6.jpeg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-7.jpeg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "valorous-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/valorous-2026/valorous-2026-8.jpeg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "japan-visit-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2026/visit-japan.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "japan-visit-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2026/visit-japan-1.jpg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "japan-visit-2026",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2026/visit-japan-2.jpg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Graduation-day/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Graduation-day/Namaste-telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Graduation-day/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Graduation-day/Praja-paksham.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Graduation-day/Sakshi.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Orientation-day/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Orientation-day/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Orientation-day/Nava-telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Orientation-day/Sakshi.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Traditionalday-2k25/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Traditionalday-2k25/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Traditionalday-2k25/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Traditionalday-2k25/Sakshi.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/UHV1-2025/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/UHV1-2025/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/UHV1-2025/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/UHV1-2025/Sakshi.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Workshop-seminars/AI-Data-Nava-T.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Workshop-seminars/FDP-1-Nava-T.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Workshop-seminars/FDP-Nava-T.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Workshop-seminars/NBA-Sakshi.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Workshop-seminars/NBA-Nava-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Workshop-seminars/Network-security-Nava-T.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Workshop-seminars/Network-security-Sakshi.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-1.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-3.jpg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-4.jpg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-5.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-1.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-6.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-7.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-8.jpg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-2.jpg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-1.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-2.jpg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-3.jpg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-4.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-5.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-6.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-7.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2020/Tech-fest-8.jpg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2021/bhatukamma-8.jpg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2019/Annual-day-1.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2019/Annual-day-2.jpg",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2019/Annual-day-3.jpg",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2019/Annual-day-4.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2019/Annual-day-5.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "general",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2019/Annual-day-6.jpg",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Namaste-Telangana.png",
+      "caption": "Sakshi News",
+      "alt_text": "Sakshi News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Nava-Telangana.png",
+      "caption": "Vaartha News",
+      "alt_text": "Vaartha News"
+    },
+    {
+      "event_key": "bathukamma-2025",
+      "media_type": "photo",
+      "url": "https://www.mlritm.ac.in/themes/custom/mlritm/images/media/2025/Bhatukamma/Enaadu.png",
+      "caption": "Eenadu News",
+      "alt_text": "Eenadu News"
+    }
+  ]
+}

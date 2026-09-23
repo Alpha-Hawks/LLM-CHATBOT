@@ -36,6 +36,14 @@ async def lifespan(app: FastAPI):
     # Initialize DB schemas
     await init_db()
     logger.info("Database schemas verified.")
+    try:
+        from backend.app.db.session import AsyncSessionLocal
+        from backend.app.services.mlritm_sync import mlritm_sync_service
+        async with AsyncSessionLocal() as session:
+            await mlritm_sync_service.synchronize(session, force_live=False)
+        logger.info("Official MLRITM Knowledge Base synchronized.")
+    except Exception as e:
+        logger.warning(f"Could not synchronize MLRITM knowledge base on startup: {e}")
     yield
     logger.info("Shutting down service...")
 

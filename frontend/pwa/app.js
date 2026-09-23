@@ -511,8 +511,51 @@ function appendMessage(sender, content = "") {
   } else {
     wrapper.innerHTML = `
       <div class="ai-avatar">AI</div>
-      <div class="bubble-assistant prose-custom"><div class="msg-content">${marked.parse(content)}</div></div>
+      <div class="bubble-assistant prose-custom">
+        <div class="msg-content">${marked.parse(content)}</div>
+        <div class="msg-feedback-bar mt-2 pt-1 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+          <span class="text-[10px] text-slate-500">Was this helpful?</span>
+          <div class="flex items-center gap-1.5">
+            <button class="feedback-btn px-1.5 py-0.5 rounded hover:bg-emerald-500/20 hover:text-emerald-400 transition" data-action="helpful" title="Helpful answer">👍</button>
+            <button class="feedback-btn px-1.5 py-0.5 rounded hover:bg-rose-500/20 hover:text-rose-400 transition" data-action="not_helpful" title="Not helpful / missing info">👎</button>
+          </div>
+        </div>
+      </div>
     `;
+    const feedbackBar = wrapper.querySelector(".msg-feedback-bar");
+    if (feedbackBar) {
+      feedbackBar.querySelectorAll(".feedback-btn").forEach(btn => {
+        btn.addEventListener("click", async (e) => {
+          e.stopPropagation();
+          const action = btn.dataset.action;
+          const queryText = window._lastUserQuery || "";
+          if (action === "helpful") {
+            try {
+              await fetch(`${API_BASE}/chat/feedback`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", ...authHeaders() },
+                body: JSON.stringify({ query: queryText, feedback: "HELPFUL" })
+              });
+              feedbackBar.innerHTML = `<span class="text-emerald-400 text-[10px]">✓ Thank you for your feedback!</span>`;
+            } catch (err) {
+              feedbackBar.innerHTML = `<span class="text-slate-400 text-[10px]">Feedback recorded.</span>`;
+            }
+          } else {
+            const note = prompt("What was missing from this answer? (Optional notes help improve college knowledge):");
+            try {
+              await fetch(`${API_BASE}/chat/feedback`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", ...authHeaders() },
+                body: JSON.stringify({ query: queryText, feedback: "NOT_HELPFUL", missing_info: note || "" })
+              });
+              feedbackBar.innerHTML = `<span class="text-indigo-300 text-[10px]">✓ Thank you! Flagged for knowledge review.</span>`;
+            } catch (err) {
+              feedbackBar.innerHTML = `<span class="text-slate-400 text-[10px]">Feedback recorded.</span>`;
+            }
+          }
+        });
+      });
+    }
   }
 
   el.chat.appendChild(wrapper);
@@ -530,6 +573,7 @@ async function sendMessage(text) {
   const question = (text ?? el.input.value).trim();
   if (!question || sending) return;
 
+  window._lastUserQuery = question;
   sending = true;
   el.send.disabled = true;
   el.input.value = "";
@@ -914,7 +958,285 @@ el.profileModal?.addEventListener("click", (e) => {
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeProfileModal();
+    closeAdminSyncModal();
     el.consentModal?.classList.add("hidden");
+  }
+});
+
+// ------------------------------------------------------------------ Admin Sync Dashboard
+const adminModal = $("adminSyncModal");
+async function loadAdminSyncStatus() {
+  try {
+    const res = await fetch(`${API_BASE}/admin/sync/status`);
+    if (res.ok) {
+      const data = await res.json();
+      if ($("syncMetricDocs")) $("syncMetricDocs").textContent = data.documents_indexed || 0;
+      if ($("syncMetricEvents")) $("syncMetricEvents").textContent = data.events_found || 0;
+      if ($("syncMetricFaculty")) $("syncMetricFaculty").textContent = data.faculty_contacts_found || 0;
+      if ($("syncMetricPhotos")) $("syncMetricPhotos").textContent = data.event_photos_found || 0;
+      if ($("syncLastTime")) {
+        const d = data.last_mlritm_sync ? new Date(data.last_mlritm_sync) : null;
+        $("syncLastTime").textContent = d && !isNaN(d) ? d.toLocaleString() : "Recently synchronized";
+      }
+    }
+
+    const logRes = await fetch(`${API_BASE}/admin/sync/logs`);
+    if (logRes.ok) {
+      const logData = await logRes.json();
+      const logsContainer = $("adminSyncLogs");
+      if (logsContainer && logData.logs) {
+        logsContainer.innerHTML = logData.logs.map(l => 
+          `<div class="flex items-start gap-1"><span class="text-indigo-400 font-bold">[${escapeHtml(l.status)}]</span> <span class="text-slate-400">${new Date(l.timestamp).toLocaleTimeString()}:</span> <span>${escapeHtml(l.message)}</span></div>`
+        ).join("");
+      }
+    }
+  } catch (err) {
+    console.error("Failed to load sync status:", err);
+  }
+}
+
+function openAdminSyncModal() {
+  if (adminModal) {
+    adminModal.classList.remove("hidden");
+    adminModal.style.display = "grid";
+    loadAdminSyncStatus();
+  }
+}
+
+function closeAdminSyncModal() {
+  if (adminModal) {
+    adminModal.classList.add("hidden");
+    adminModal.style.display = "none";
+  }
+}
+
+$("adminSyncBtn")?.addEventListener("click", openAdminSyncModal);
+$("closeAdminSyncModalBtn")?.addEventListener("click", closeAdminSyncModal);
+$("closeAdminSyncModalBtnBottom")?.addEventListener("click", closeAdminSyncModal);
+
+$("triggerSyncAllBtn")?.addEventListener("click", async () => {
+  const fb = $("adminActionFeedback");
+  if (fb) { fb.classList.remove("hidden"); fb.textContent = "Triggering MLRITM website synchronization..."; }
+  try {
+    const res = await fetch(`${API_BASE}/admin/sync/trigger`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ target: "all", force_live: false })
+    });
+    const d = await res.json();
+    if (fb) fb.textContent = d.message || "Synchronization finished!";
+    await loadAdminSyncStatus();
+  } catch (err) {
+    if (fb) fb.textContent = "Sync failed: " + err.message;
+  }
+});
+
+$("triggerSyncPhoneBtn")?.addEventListener("click", async () => {
+  const fb = $("adminActionFeedback");
+  if (fb) { fb.classList.remove("hidden"); fb.textContent = "Synchronizing MLRITM Phone Directory..."; }
+  try {
+    const res = await fetch(`${API_BASE}/admin/sync/trigger`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ target: "faculty", force_live: false })
+    });
+    const d = await res.json();
+    if (fb) fb.textContent = "Phone Directory synchronized!";
+    await loadAdminSyncStatus();
+  } catch (err) {
+    if (fb) fb.textContent = "Sync failed: " + err.message;
+  }
+});
+
+$("triggerRebuildIndexBtn")?.addEventListener("click", async () => {
+  const fb = $("adminActionFeedback");
+  if (fb) { fb.classList.remove("hidden"); fb.textContent = "Rebuilding knowledge base search index..."; }
+  try {
+    const res = await fetch(`${API_BASE}/admin/index/rebuild`, { method: "POST" });
+    const d = await res.json();
+    if (fb) fb.textContent = d.message || "Index rebuilt!";
+    await loadAdminSyncStatus();
+  } catch (err) {
+    if (fb) fb.textContent = "Rebuild failed: " + err.message;
+  }
+});
+
+// ------------------------------------------------------------------ Admin Knowledge Gaps & Tabs
+function switchAdminTab(activeTab) {
+  const tabs = ["Sync", "Gaps", "Adaptive"];
+  tabs.forEach(t => {
+    const btn = $(`adminTab${t}`);
+    const pane = $(`adminPane${t}`);
+    if (t === activeTab) {
+      btn?.classList.add("bg-indigo-600/30", "text-indigo-300", "border-indigo-500/40");
+      btn?.classList.remove("text-slate-400", "border-transparent");
+      pane?.classList.remove("hidden");
+    } else {
+      btn?.classList.remove("bg-indigo-600/30", "text-indigo-300", "border-indigo-500/40");
+      btn?.classList.add("text-slate-400", "border-transparent");
+      pane?.classList.add("hidden");
+    }
+  });
+
+  if (activeTab === "Gaps") loadAdminGaps();
+  if (activeTab === "Adaptive") loadAdminAdaptiveItems();
+}
+
+$("adminTabSync")?.addEventListener("click", () => switchAdminTab("Sync"));
+$("adminTabGaps")?.addEventListener("click", () => switchAdminTab("Gaps"));
+$("adminTabAdaptive")?.addEventListener("click", () => switchAdminTab("Adaptive"));
+$("refreshGapsBtn")?.addEventListener("click", loadAdminGaps);
+$("refreshAdaptiveBtn")?.addEventListener("click", loadAdminAdaptiveItems);
+
+async function loadAdminGaps() {
+  const container = $("gapsContainer");
+  if (!container) return;
+  container.innerHTML = `<div class="text-xs text-slate-500 text-center py-4">Fetching knowledge gaps...</div>`;
+  try {
+    const res = await fetch(`${API_BASE}/admin/knowledge/gaps?limit=50`);
+    if (!res.ok) throw new Error("Failed to load gaps");
+    const data = await res.json();
+    if (!data.gaps || data.gaps.length === 0) {
+      container.innerHTML = `<div class="text-xs text-slate-400 text-center py-4">No active knowledge gaps recorded. Everything is answered!</div>`;
+      return;
+    }
+    container.innerHTML = data.gaps.map(g => `
+      <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col gap-1.5 text-xs">
+        <div class="flex items-start justify-between gap-2">
+          <span class="font-medium text-white">${escapeHtml(g.question)}</span>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <span class="px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px] font-semibold">${g.frequency}x asked</span>
+            <span class="px-1.5 py-0.5 rounded ${g.verification_status === 'VERIFIED' ? 'bg-emerald-500/20 text-emerald-400' : (g.answer_status === 'NEEDS_REVIEW' ? 'bg-amber-500/20 text-amber-300' : 'bg-rose-500/20 text-rose-300')} text-[10px] font-semibold">${escapeHtml(g.verification_status || g.answer_status)}</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between text-[11px] text-slate-400">
+          <span>Topic: <b class="text-slate-300">${escapeHtml(g.topic || 'general')}</b></span>
+          <div class="flex items-center gap-1">
+            ${g.verification_status !== 'VERIFIED' ? `
+              <button class="verify-gap-btn px-2 py-0.5 rounded bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 text-[10px] font-medium transition" data-id="${g.id}" data-q="${escapeHtml(g.question)}" data-topic="${escapeHtml(g.topic || 'general')}">✅ Verify</button>
+              <button class="reject-gap-btn px-2 py-0.5 rounded bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 text-[10px] font-medium transition" data-id="${g.id}">❌ Reject</button>
+            ` : `<span class="text-emerald-400 font-medium text-[10px]">✓ Resolved</span>`}
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    container.querySelectorAll(".verify-gap-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openVerifyModal(btn.dataset.id, btn.dataset.q, btn.dataset.topic);
+      });
+    });
+
+    container.querySelectorAll(".reject-gap-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        if (!confirm("Mark this gap as REJECTED?")) return;
+        try {
+          await fetch(`${API_BASE}/admin/knowledge/gaps/${btn.dataset.id}/reject`, { method: "POST" });
+          loadAdminGaps();
+        } catch (e) {
+          alert("Rejection failed: " + e.message);
+        }
+      });
+    });
+  } catch (err) {
+    container.innerHTML = `<div class="text-xs text-rose-400 text-center py-4">Error loading gaps: ${escapeHtml(err.message)}</div>`;
+  }
+}
+
+async function loadAdminAdaptiveItems() {
+  const container = $("adaptiveContainer");
+  if (!container) return;
+  container.innerHTML = `<div class="text-xs text-slate-500 text-center py-4">Fetching adaptive knowledge items...</div>`;
+  try {
+    const res = await fetch(`${API_BASE}/admin/knowledge/items?limit=50`);
+    if (!res.ok) throw new Error("Failed to load adaptive items");
+    const data = await res.json();
+    if (!data.items || data.items.length === 0) {
+      container.innerHTML = `<div class="text-xs text-slate-400 text-center py-4">No adaptive items stored yet.</div>`;
+      return;
+    }
+    container.innerHTML = data.items.map(it => `
+      <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col gap-1.5 text-xs">
+        <div class="flex items-start justify-between gap-2">
+          <span class="font-medium text-white">${escapeHtml(it.question_pattern || it.topic)}</span>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <span class="px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px] font-semibold">v${it.version}</span>
+            <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-semibold">${escapeHtml(it.source_trust_level)}</span>
+          </div>
+        </div>
+        <p class="text-slate-300 leading-relaxed text-[11px]">${escapeHtml(it.verified_content)}</p>
+        <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-white/5">
+          <span>Source: <a href="${escapeHtml(it.source_url)}" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">${escapeHtml(it.source_url)}</a></span>
+          <button class="refresh-item-btn text-indigo-400 hover:text-indigo-300 transition" data-id="${it.id}">🔄 Re-verify</button>
+        </div>
+      </div>
+    `).join("");
+
+    container.querySelectorAll(".refresh-item-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        try {
+          await fetch(`${API_BASE}/admin/knowledge/items/${btn.dataset.id}/refresh`, { method: "POST" });
+          btn.textContent = "✓ Re-verified";
+          setTimeout(loadAdminAdaptiveItems, 800);
+        } catch (e) {
+          alert("Refresh failed: " + e.message);
+        }
+      });
+    });
+  } catch (err) {
+    container.innerHTML = `<div class="text-xs text-rose-400 text-center py-4">Error: ${escapeHtml(err.message)}</div>`;
+  }
+}
+
+const verifyModal = $("verifyGapModal");
+function openVerifyModal(gapId, question, topic) {
+  if (!verifyModal) return;
+  $("verifyGapId").value = gapId;
+  $("verifyGapQuestion").textContent = question;
+  $("verifyGapContent").value = "";
+  $("verifyGapFeedback")?.classList.add("hidden");
+  verifyModal.classList.remove("hidden");
+  verifyModal.style.display = "grid";
+}
+
+function closeVerifyModal() {
+  if (verifyModal) {
+    verifyModal.classList.add("hidden");
+    verifyModal.style.display = "none";
+  }
+}
+
+$("closeVerifyGapBtn")?.addEventListener("click", closeVerifyModal);
+$("cancelVerifyGapBtn")?.addEventListener("click", closeVerifyModal);
+
+$("submitVerifyGapBtn")?.addEventListener("click", async () => {
+  const gapId = $("verifyGapId").value;
+  const content = $("verifyGapContent").value.trim();
+  const sourceUrl = $("verifyGapSourceUrl").value.trim() || "https://www.mlritm.ac.in";
+  const trust = $("verifyGapTrust").value;
+  const fb = $("verifyGapFeedback");
+
+  if (!content) {
+    if (fb) { fb.textContent = "Please enter verified factual content."; fb.classList.remove("hidden"); }
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/admin/knowledge/gaps/${gapId}/verify`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        verified_content: content,
+        source_url: sourceUrl,
+        source_trust_level: trust
+      })
+    });
+    if (!res.ok) throw new Error("Verification failed.");
+    closeVerifyModal();
+    loadAdminGaps();
+    alert("Knowledge gap verified & stored in adaptive knowledge base!");
+  } catch (e) {
+    if (fb) { fb.textContent = e.message; fb.classList.remove("hidden"); }
   }
 });
 

@@ -123,14 +123,21 @@ async def get_auth_config():
 
 
 @router.get("/anvaya/login")
-async def anvaya_sso_login_page(request: Request):
+async def anvaya_sso_login_page(request: Request, db: AsyncSession = Depends(get_db)):
     """Directs the browser to the official Anvaya Portal SSO login interface or returns config."""
     accept = request.headers.get("accept", "")
     if "application/json" in accept and "text/html" not in accept:
+        sample_students = []
+        try:
+            from sqlalchemy import text
+            res = await db.execute(text("SELECT roll_number, name, branch FROM students LIMIT 10"))
+            sample_students = [dict(r) for r in res.mappings().fetchall()]
+        except Exception:
+            pass
         return JSONResponse({
             "anvaya_sso_enabled": True,
             "anvaya_login_url": "/anvaya/login.html",
-            "students": [],
+            "students": sample_students,
         })
     return RedirectResponse(url="/anvaya/login.html", status_code=status.HTTP_303_SEE_OTHER)
 

@@ -27,6 +27,7 @@ from typing import Any, Dict, Optional
 from pydantic import BaseModel
 
 from backend.app.services.response_formatter import format_context_bundle
+from backend.app.llm.openai_client import openai_service
 
 logger = logging.getLogger(__name__)
 
@@ -70,13 +71,14 @@ class AIResponseEngine:
     prompt and returning text. When it is absent the deterministic path is used.
     """
 
-    def __init__(self, llm_engine: Optional[Any] = None):
+    def __init__(self, llm_engine: Optional[Any] = None, openai_client: Optional[Any] = None):
         self.llm_engine = llm_engine
+        self.openai_client = openai_client or openai_service
 
     # -- Prompting ----------------------------------------------------------------------------
 
     def build_prompt(self, question: str, personal_block: Optional[str], knowledge_block: Optional[str]) -> str:
-        """Builds the Llama 2 chat prompt with both context boundaries."""
+        """Builds the chat prompt with both context boundaries."""
         parts = []
         if personal_block:
             parts.append(f'<student_context authorized="true">\n{personal_block}\n</student_context>')
@@ -117,7 +119,8 @@ class AIResponseEngine:
         if not personal_block and not knowledge_text:
             return AIAnswer(answer=NO_DATA_ANSWER)
 
-        advice = self._generate_advice(question, bundle, knowledge_text) if self.llm_engine else None
+        has_ai = bool(self.llm_engine or (self.openai_client and self.openai_client.is_available))
+        advice = self._generate_advice(question, bundle, knowledge_text) if has_ai else None
 
         # The headings exist to separate the two sources. With only one source there is nothing
         # to separate, so the answer stays clean.
@@ -130,29 +133,39 @@ class AIResponseEngine:
         if knowledge_text:
             sections.append(f"{GENERAL_HEADING}\n\n{knowledge_text}" if blended else knowledge_text)
         if advice:
-            sections.append(f"#### 💡 What this means for you\n\n{advice}")
+            sections.append(f"#### 💡 Guidance\n\n{advice}")
 
         return AIAnswer(
             answer="\n\n".join(sections),
             used_personal_data=personal_block is not None,
             used_knowledge_base=knowledge_text is not None,
             citations=citations,
-            generated_by="llm" if advice else "deterministic",
+            generated_by="openai" if (self.openai_client and self.openai_client.is_available) else ("llm" if advice else "deterministic"),
         )
 
     def _generate_advice(self, question: str, bundle: Optional[Any], knowledge_text: Optional[str]) -> Optional[str]:
-        """
-        Asks the local model for the advisory paragraph only.
-
-        The figures are already rendered deterministically above it, so a model failure costs the
-        student nothing but the commentary.
-        """
+        """Generates natural language advisory/guidance paragraph."""
         personal_prompt_block = bundle.to_prompt_block() if bundle is not None and not bundle.is_empty() else None
-        prompt = self.build_prompt(question, personal_prompt_block, knowledge_text)
-        try:
-            output = self.llm_engine(prompt)
-            text = output if isinstance(output, str) else str(output)
-            return text.strip() or None
-        except Exception as e:
-            logger.warning(f"Local model did not produce advice ({type(e).__name__}); using the records alone.")
-            return None
+
+        if self.openai_client and self.openai_client.is_available:
+            try:
+                out = self.openai_client.generate_response(
+                    question,
+                    college_knowledge=knowledge_text,
+                    student_context=personal_prompt_block
+                )
+                if out:
+                    return out
+            except Exception as e:
+                logger.warning(f"OpenAI service failed: {e}")
+
+        if self.llm_engine:
+            prompt = self.build_prompt(question, personal_prompt_block, knowledge_text)
+            try:
+                output = self.llm_engine(prompt)
+                text = output if isinstance(output, str) else str(output)
+                return text.strip() or None
+            except Exception as e:
+                logger.warning(f"Local model did not produce advice ({type(e).__name__}); using the records alone.")
+                return None
+        return None

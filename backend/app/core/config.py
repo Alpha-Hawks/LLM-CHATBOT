@@ -61,10 +61,21 @@ class Settings(BaseSettings):
     SECRET_KEY: str = os.getenv("SECRET_KEY", "mlritm-secret-key-change-in-production-2024")
     AES_ENCRYPTION_KEY: str = os.getenv("AES_ENCRYPTION_KEY", "0123456789abcdef0123456789abcdef")  # 32-byte hex for AES-256
     
-    # LLM Settings
+    # LLM Settings (OpenAI Backend Integration & Local Fallbacks)
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+    OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
     MODEL_PATH: str = os.getenv("MODEL_PATH", "models/mlritm-llama2-7b-q4_k_m.gguf")
     HF_TOKEN: str = os.getenv("HF_TOKEN", "")
     GBNF_GRAMMAR_PATH: str = "backend/app/llm/grammars/intent_schema.gbnf"
+
+    # Google / Web Search Settings (Information Retrieval Layer)
+    GOOGLE_SEARCH_API_KEY: str = os.getenv("GOOGLE_SEARCH_API_KEY", "")
+    GOOGLE_SEARCH_ENGINE_ID: str = os.getenv("GOOGLE_SEARCH_ENGINE_ID", "")
+    WEB_SEARCH_CACHE_TTL_SECONDS: int = int(os.getenv("WEB_SEARCH_CACHE_TTL_SECONDS", "86400"))
+
+    # Official MLRITM Public Sources
+    MLRITM_BASE_URL: str = os.getenv("MLRITM_BASE_URL", "https://www.mlritm.ac.in")
+    MLRITM_PHONE_DIRECTORY_URL: str = os.getenv("MLRITM_PHONE_DIRECTORY_URL", "https://www.mlritm.ac.in/Phone_Directory")
 
     # "development" or "production". Sample data and the dev launch simulator only work in development.
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "production")

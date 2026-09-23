@@ -148,6 +148,9 @@ class RAGEngine:
         }
 
 
+rag_engine = RAGEngine()
+
+
 if __name__ == "__main__":
     engine = RAGEngine()
     q = "What is the minimum attendance required for exams?"

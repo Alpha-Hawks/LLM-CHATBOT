@@ -51,6 +51,17 @@ fieldnames = [
     "extraction_method"
 ]
 
+ADMISSION_CATEGORY_MAP = {
+    "conv": "Convener",
+    "convener": "Convener",
+    "mgmt": "Management",
+    "management": "Management",
+    "le-conv": "LE-Convener",
+    "le-convener": "LE-Convener",
+    "le-mgmt": "LE-Management",
+    "le-management": "LE-Management",
+}
+
 def clean_cell(c):
     return re.sub(r'\s+', ' ', c).strip() if c else ""
 
@@ -59,6 +70,12 @@ def get_clean_branch(b_raw, clean_roll):
     if br_code in BRANCH_MAP:
         return BRANCH_MAP[br_code]
     return clean_cell(b_raw).upper()
+
+def get_clean_admission_category(val):
+    if not val:
+        return ""
+    cleaned = clean_cell(val)
+    return ADMISSION_CATEGORY_MAP.get(cleaned.lower(), cleaned)
 
 all_students = []
 needs_review = []
@@ -115,7 +132,7 @@ for pdf_path in pdf_files:
                             "scholarship_type": row[13],
                             "parent_income": row[14],
                             "parent_profession": row[15],
-                            "admission_category": row[16],
+                            "admission_category": get_clean_admission_category(row[16] if len(row) > 16 else ""),
                             "caste_name": row[17],
                             "current_semester": row[18],
                             "source_file": fname,
@@ -143,7 +160,7 @@ for pdf_path in pdf_files:
                             "scholarship_type": row[13] if len(row) > 13 else "",
                             "parent_income": row[14] if len(row) > 14 else "",
                             "parent_profession": row[15] if len(row) > 15 else "",
-                            "admission_category": row[16] if len(row) > 16 else "",
+                            "admission_category": get_clean_admission_category(row[16] if len(row) > 16 else ""),
                             "caste_name": row[17] if len(row) > 17 else "",
                             "current_semester": row[18] if len(row) > 18 else "",
                             "source_file": fname,
